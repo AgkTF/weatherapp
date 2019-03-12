@@ -1,0 +1,18 @@
+.WeekdayWeather {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 200px;
+	height: 200px;
+}
+
+.Temp {
+	margin-top: 0;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.WeatherIcon img {
+	width: 100%;
+	height: 100%;
+}
