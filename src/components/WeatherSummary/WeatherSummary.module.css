@@ -8,6 +8,7 @@
 .FirstRow {
 	display: flex;
 	justify-content: center;
+	height: 50%;
 }
 
 .Temp {
@@ -17,12 +18,13 @@
 }
 
 .WeatherIcon {
-	width: 180px;
-	height: 180px;
+	margin-top: 22px;
+	width: 130px;
+	height: 130px;
 }
 
 .SecondRow {
-    width: 100%;
-    height: 100px;
+	width: 100%;
+	height: 100px;
 	margin-top: 0;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Toggle from './components/UI/Buttons/Toggle/Toggle';
+import Layout from './containers/Layout/Layout';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +13,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Toggle />
+				<Layout />
 			</div>
 		);
 	}

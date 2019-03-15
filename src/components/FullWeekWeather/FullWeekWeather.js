@@ -1,6 +1,6 @@
 import React from 'react';
 import WeekdayWeather from './WeekdayWeather/WeekdayWeather';
-import classes from './FullWeekWeather.module.css'
+import classes from './FullWeekWeather.module.css';
 
 const fullWeekWeather = (props) => {
 	return (

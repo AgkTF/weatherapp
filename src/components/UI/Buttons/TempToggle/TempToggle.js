@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import classes from './Toggle.module.css';
+import classes from './TempToggle.module.css';
 
-class Toggle extends Component {
+class TempToggle extends Component {
 	state = {
 		btnSwitched: false
 	};
@@ -35,4 +35,4 @@ class Toggle extends Component {
 	}
 }
 
-export default Toggle;
+export default TempToggle;

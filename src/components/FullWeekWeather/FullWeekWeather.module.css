@@ -1,6 +1,8 @@
 .FullWeekWeather {
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	align-content: flex-start;
+	border: 2px solid green;
+	height: 200px;
+	box-sizing: border-box;
 }
