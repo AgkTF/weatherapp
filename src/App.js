@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import Layout from './containers/Layout/Layout';
 
@@ -12,7 +11,7 @@ library.add(faMapMarkerAlt);
 class App extends Component {
 	render() {
 		return (
-			<div className="App">
+			<div>
 				<Layout />
 			</div>
 		);

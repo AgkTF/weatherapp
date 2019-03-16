@@ -7,7 +7,7 @@ import FullWeekWeather from '../../components/FullWeekWeather/FullWeekWeather';
 class Layout extends Component {
 	render() {
 		return (
-			<div>
+			<div className={classes.Layout}>
 				<Toolbar />
 				<MainArea />
 				<FullWeekWeather />

@@ -1,10 +1,18 @@
 .MainArea {
-    width: 50%;
+	width: 100%;
+	height: 100%;
+
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: nowrap;
-}
-/* 
-.Toggle {
 
-} */
+	background-image: linear-gradient(
+			rgba(255, 255, 0, 0.021),
+			rgba(255, 166, 0, 0.397)
+		),
+		url('../../assests/cities/Giza_992.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: 25px;
+}
