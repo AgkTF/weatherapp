@@ -6,11 +6,17 @@
 	justify-content: space-between;
 	flex-wrap: nowrap;
 
-	background-image: linear-gradient(
+	/* background-image: linear-gradient(
 			rgba(255, 255, 0, 0.021),
 			rgba(255, 166, 0, 0.397)
 		),
-		url('../../assests/cities/Giza_992.png');
+		url('../../assests/cities/Giza_992.png'); */
+
+	background-image: linear-gradient(
+		rgba(255, 255, 0, 0.021),
+		rgba(255, 166, 0, 0.397)
+	);
+
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position-x: center;

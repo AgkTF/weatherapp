@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const location = (props) => {
 	return (
 		<div className={classes.Location}>
-			<FontAwesomeIcon icon="map-marker-alt" /> <span>New York</span>
+			<FontAwesomeIcon icon="map-marker-alt" /> <span>Giza, Egypt</span>
 		</div>
 	);
 };

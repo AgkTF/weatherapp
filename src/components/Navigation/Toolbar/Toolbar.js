@@ -6,7 +6,7 @@ const toolbar = (props) => {
 	return (
 		<header className={classes.Toolbar}>
 			<DrawerToggle />
-			<h4>Wedensday, January 21st</h4>
+			<p>Wedensday, January 21st</p>
 		</header>
 	);
 };

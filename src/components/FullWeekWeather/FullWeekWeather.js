@@ -10,8 +10,6 @@ const fullWeekWeather = (props) => {
 			<WeekdayWeather />
 			<WeekdayWeather />
 			<WeekdayWeather />
-			<WeekdayWeather />
-			<WeekdayWeather />
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './WeekdayWeather.module.css';
-import sunny from '../../../assests/icons/sunny.png';
-import rainyThunders from '../../../assests/icons/rainyThunders.png';
+// import sunny from '../../../assests/icons/sunny.png';
+import partlyCloudy from '../../../assets/icons-2/partly_cloudy_day.png';
 
 const weekdayWeather = (props) => {
 	return (
@@ -10,8 +10,8 @@ const weekdayWeather = (props) => {
 			<div>
 				<img
 					className={classes.WeatherIcon}
-					src={rainyThunders}
-					alt="sunny"
+					src={partlyCloudy}
+					alt="partlyCloudy"
 				/>
 			</div>
 			<p className={classes.Temp}>13°</p>
