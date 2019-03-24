@@ -1,4 +1,19 @@
 .Container {
-	width: 50%;
-	display: grid;
+	width: 65%;
+	text-align: center;
+	margin: auto;
+	margin-top: 3rem;
+}
+
+.Header {
+	font-size: 3rem;
+}
+
+.Header i {
+	font-size: 4rem;
+}
+
+.Subheader {
+	margin-top: 1rem;
+	font-size: 1.25rem;
 }

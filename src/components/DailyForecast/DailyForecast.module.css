@@ -1,0 +1,17 @@
+.DailyForecast {
+	text-align: center;
+}
+
+.WeatherIcon {
+	font-size: 3rem;
+	padding-bottom: 1rem;
+}
+
+.Temps {
+	font-size: 1.2rem;
+	padding-bottom: 0.5rem;
+}
+
+.Raindrop i {
+	color: rgb(22, 235, 235);
+}

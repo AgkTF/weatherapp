@@ -3,6 +3,7 @@ import classes from './App.module.css';
 import NavMenu from './components/Navigation/NavMenu';
 import Controls from './components/Controls/Controls';
 import MainWeatherInfo from './components/MainWeatherInfo/MainWeatherInfo';
+import DailyForecast from './components/DailyForecast/DailyForecast';
 
 class App extends Component {
 	render() {
@@ -14,7 +15,10 @@ class App extends Component {
 				<header>
 					<Controls />
 				</header>
-				<main className={classes.MainContent} />
+				<main className={classes.MainContent}>
+					<MainWeatherInfo />
+					<DailyForecast />
+				</main>
 			</>
 		);
 	}
