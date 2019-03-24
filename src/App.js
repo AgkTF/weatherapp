@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-
-import Layout from './containers/Layout/Layout';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faMapMarkerAlt);
+import classes from './App.module.css';
+import NavMenu from './components/Navigation/NavMenu';
+import Controls from './components/Controls/Controls';
+import MainWeatherInfo from './components/MainWeatherInfo/MainWeatherInfo';
 
 class App extends Component {
 	render() {
 		return (
-			<div>
-				<Layout />
-			</div>
+			<>
+				<nav>
+					<NavMenu />
+				</nav>
+				<header>
+					<Controls />
+				</header>
+				<main className={classes.MainContent} />
+			</>
 		);
 	}
 }
