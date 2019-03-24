@@ -6,14 +6,23 @@
 }
 
 .Header {
-	font-size: 3rem;
+	font-size: 5rem;
 }
 
 .Header i {
+	font-size: 4.5rem;
+}
+
+.Header span {
 	font-size: 4rem;
 }
 
-.Subheader {
+.Subheader1 {
+	margin-top: 2rem;
+	font-size: 1.25rem;
+}
+
+.Subheader2 {
 	margin-top: 1rem;
 	font-size: 1.25rem;
 }

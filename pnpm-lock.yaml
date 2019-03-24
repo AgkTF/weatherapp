@@ -2,6 +2,7 @@ dependencies:
   '@fortawesome/fontawesome-svg-core': 1.2.17
   '@fortawesome/free-solid-svg-icons': 5.8.1
   '@fortawesome/react-fontawesome': 0.1.4
+  '@svgr/webpack': 4.1.0
   prop-types: 15.7.2
   react: 16.8.4
   react-dom: 16.8.4
@@ -1542,7 +1543,7 @@ packages:
     dependencies:
       '@svgr/plugin-jsx': 4.1.0
       camelcase: 5.2.0
-      cosmiconfig: 5.1.0
+      cosmiconfig: 5.2.0
     dev: false
     engines:
       node: '>=8'
@@ -1571,7 +1572,7 @@ packages:
       integrity: sha512-xwu+9TGziuN7cu7p+vhCw2EJIfv8iDNMzn2dR0C7fBYc8q+SRtYTcg4Uyn8ZWh6DM+IZOlVrS02VEMT0FQzXSA==
   /@svgr/plugin-svgo/4.0.3:
     dependencies:
-      cosmiconfig: 5.1.0
+      cosmiconfig: 5.2.0
       merge-deep: 3.0.2
       svgo: 1.2.0
     dev: false
@@ -3155,6 +3156,17 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-kCNPvthka8gvLtzAxQXvWo4FxqRB+ftRZyPZNuab5ngvM9Y7yw7hbEysglptLgpkGX9nAOKTBVkHUAe8xtYR6Q==
+  /cosmiconfig/5.2.0:
+    dependencies:
+      import-fresh: 2.0.0
+      is-directory: 0.3.1
+      js-yaml: 3.13.0
+      parse-json: 4.0.0
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-nxt+Nfc3JAqf4WIWd0jXLjTJZmsPLrA9DDc4nRw2KFJQJK7DNooqSXrNI7tzLG50CF8axczly5UV929tBmh/7g==
   /create-ecdh/4.0.3:
     dependencies:
       bn.js: 4.11.8
@@ -10842,6 +10854,7 @@ specifiers:
   '@fortawesome/fontawesome-svg-core': ^1.2.15
   '@fortawesome/free-solid-svg-icons': ^5.7.2
   '@fortawesome/react-fontawesome': ^0.1.4
+  '@svgr/webpack': ^4.1.0
   prop-types: ^15.7.2
   react: 16.8.4
   react-dom: 16.8.4
