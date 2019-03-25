@@ -3,9 +3,11 @@ dependencies:
   '@fortawesome/free-solid-svg-icons': 5.8.1
   '@fortawesome/react-fontawesome': 0.1.4
   '@svgr/webpack': 4.1.0
+  moment: 2.24.0
   prop-types: 15.7.2
   react: 16.8.4
   react-dom: 16.8.4
+  react-moment: 0.8.4
   react-scripts: 2.1.8
   semantic-ui-css: 2.4.1
   semantic-ui-react: 0.86.0
@@ -6921,6 +6923,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+  /moment/2.24.0:
+    dev: false
+    resolution:
+      integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
   /move-concurrently/1.0.1:
     dependencies:
       aproba: 1.2.0
@@ -8640,6 +8646,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-sudt2uq5P/2TznPV4Wtdi+Lnq3yaYW8LfvPKLM9BKD8jJNBkxMVyB0C9/GmVhLw7Jbdmndk/73n7XQGeN9A3QQ==
+  /react-moment/0.8.4:
+    dev: false
+    peerDependencies:
+      moment: ^2.19.1
+      prop-types: ^15.6.0
+      react: ^15.6.0 || ^16.0.0
+    resolution:
+      integrity: sha512-QhI19OcfhiAn60/O6bMR0w8ApXrPFCjv6+eV0I/P9/AswzjgEAx4L7VxMBCpS/jrythLa12Q9v88req+ys4YpA==
   /react-scripts/2.1.8:
     dependencies:
       '@babel/core': 7.2.2
@@ -10855,9 +10869,11 @@ specifiers:
   '@fortawesome/free-solid-svg-icons': ^5.7.2
   '@fortawesome/react-fontawesome': ^0.1.4
   '@svgr/webpack': ^4.1.0
+  moment: ^2.24.0
   prop-types: ^15.7.2
   react: 16.8.4
   react-dom: 16.8.4
+  react-moment: ^0.8.4
   react-scripts: ^2.1.8
   semantic-ui-css: ^2.4.1
   semantic-ui-react: ^0.86.0
