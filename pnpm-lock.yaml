@@ -3,6 +3,8 @@ dependencies:
   '@fortawesome/free-solid-svg-icons': 5.8.1
   '@fortawesome/react-fontawesome': 0.1.4
   '@svgr/webpack': 4.1.0
+  axios: 0.18.0
+  dotenv: 7.0.0
   moment: 2.24.0
   prop-types: 15.7.2
   react: 16.8.4
@@ -2121,6 +2123,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
+  /axios/0.18.0:
+    dependencies:
+      follow-redirects: 1.7.0
+      is-buffer: 1.1.6
+    dev: false
+    resolution:
+      integrity: sha1-MtU+SFHv3AoRmTts0AB4nXDAUQI=
   /axobject-query/2.0.2:
     dependencies:
       ast-types-flow: 0.0.7
@@ -3777,6 +3786,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-FlWbnhgjtwD+uNLUGHbMykMOYQaTivdHEmYwAKFjn6GKe/CqY0fNae93ZHTd20snh9ZLr8mTzIL9m0APQ1pjQg==
+  /dotenv/7.0.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==
   /duplexer/0.1.1:
     dev: false
     resolution:
@@ -10869,6 +10884,8 @@ specifiers:
   '@fortawesome/free-solid-svg-icons': ^5.7.2
   '@fortawesome/react-fontawesome': ^0.1.4
   '@svgr/webpack': ^4.1.0
+  axios: ^0.18.0
+  dotenv: ^7.0.0
   moment: ^2.24.0
   prop-types: ^15.7.2
   react: 16.8.4
