@@ -7,11 +7,11 @@ const dailyForecast = (props) => {
 		<div className={classes.DailyForecast}>
 			<h2>{props.weekday}</h2>
 			<div className={classes.WeatherIcon}>
-				<i class={`wi wi-${props.weatherIcon}`} />
+				<i className={`wi wi-${props.weatherIcon}`} />
 			</div>
 			<div className={classes.Temps}>45° 38°</div>
 			<div className={classes.Raindrop}>
-				<i class="wi wi-raindrop" />
+				<i className="wi wi-raindrop" />
 				{'  '}10%
 			</div>
 		</div>
