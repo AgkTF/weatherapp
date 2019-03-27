@@ -7,7 +7,7 @@ const controls = (props) => {
 	return (
 		<div className={classes.Controls}>
 			<LocationBtn />
-			<LocationInput />
+			<LocationInput changed={props.changed} />
 		</div>
 	);
 };
