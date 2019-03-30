@@ -11,48 +11,48 @@ class MainWeatherInfo extends Component {
 		temp: 33
 	};
 
-	fetchWeatherData() {
-		axios
-			.get(
-				`?lat=${this.props.location.lat}&lon=${
-					this.props.location.lng
-				}&units=${this.props.units}&appid=${
-					process.env.REACT_APP_APPID
-				}`
-			)
-			.then((response) => {
-				console.log(response);
+	// fetchWeatherData() {
+	// 	axios
+	// 		.get(
+	// 			`?lat=${this.props.location.lat}&lon=${
+	// 				this.props.location.lng
+	// 			}&units=${this.props.units}&appid=${
+	// 				process.env.REACT_APP_APPID
+	// 			}`
+	// 		)
+	// 		.then((response) => {
+	// 			console.log(response);
 
-				const date = new Date();
-				const sunrise = new Date(response.data.sys.sunrise * 1000); //Convert a Unix timestamp to time
-				const sunset = new Date(response.data.sys.sunset * 1000);
-				let weatherIconId = '';
+	// 			const date = new Date();
+	// 			const sunrise = new Date(response.data.sys.sunrise * 1000); //Convert a Unix timestamp to time
+	// 			const sunset = new Date(response.data.sys.sunset * 1000);
+	// 			let weatherIconId = '';
 
-				if (
-					date.getHours() >= sunrise.getHours() &&
-					date.getHours() < sunset.getHours()
-				) {
-					weatherIconId = `wi wi-owm-day-${
-						response.data.weather[0].id
-					}`;
-				} else if (date.getHours() >= sunset.getHours()) {
-					weatherIconId = `wi wi-owm-night-${
-						response.data.weather[0].id
-					}`;
-				}
+	// 			if (
+	// 				date.getHours() >= sunrise.getHours() &&
+	// 				date.getHours() < sunset.getHours()
+	// 			) {
+	// 				weatherIconId = `wi wi-owm-day-${
+	// 					response.data.weather[0].id
+	// 				}`;
+	// 			} else if (date.getHours() >= sunset.getHours()) {
+	// 				weatherIconId = `wi wi-owm-night-${
+	// 					response.data.weather[0].id
+	// 				}`;
+	// 			}
 
-				this.setState({
-					weatherIcon: weatherIconId,
-					weatherSummary: response.data.weather[0].description,
-					temp: Math.floor(response.data.main.temp)
-				});
-			})
+	// 			this.setState({
+	// 				weatherIcon: weatherIconId,
+	// 				weatherSummary: response.data.weather[0].description,
+	// 				temp: Math.floor(response.data.main.temp)
+	// 			});
+	// 		})
 
-			.catch((error) => console.log(error));
-	}
+	// 		.catch((error) => console.log(error));
+	// }
 
 	componentDidUpdate(prevProps) {
-		console.log(this.props, 'from componentDidUpdate');
+		console.log(this.props, 'from [componentDidUpdate]');
 
 		if (
 			prevProps.location.lat === this.props.location.lat &&

@@ -3,13 +3,10 @@ import NavMenu from '../../components/Navigation/NavMenu';
 import Controls from '../../components/Controls/Controls';
 import MainWeatherInfo from '../../components/MainWeatherInfo/MainWeatherInfo';
 import WeeklyForecast from '../../components/WeeklyForecast/WeeklyForecast';
+import MainContext from '../../context/main-context';
+import axios from 'axios';
 
 class Layout extends Component {
-	state = {
-		location: { city: 'Cairo, Egypt', lat: 30.06263, lng: 31.24967 },
-		units: 'metric'
-	};
-
 	_suggestionSelect = (result, lat, lng, text) => {
 		console.log(result, lat, lng, text);
 
@@ -25,10 +22,32 @@ class Layout extends Component {
 	};
 
 	fetchCurrentLocationHandler = () => {
+		const reverseGeocoding = (lng, lat) => {
+			const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${
+				process.env.REACT_APP_MAPBOX_PUBLIC_KEY
+			}`;
+			const currentLocation = {};
+
+			axios
+				.get(url)
+				.then((response) => {
+					console.log(response.data.features[0].place_name);
+					currentLocation.city = response.data.features[0].place_name;
+					currentLocation.lat = lat;
+					currentLocation.lng = lng;
+					this.setState({
+						location: currentLocation,
+						btnIcon: 'check'
+					});
+				})
+				.catch((error) => console.log(error));
+		};
+
 		const success = (position) => {
 			const latitude = position.coords.latitude;
 			const longitude = position.coords.longitude;
 			console.log(`Latitude: ${latitude}\nLongitude: ${longitude}`);
+			reverseGeocoding(longitude, latitude);
 		};
 
 		const error = () => {
@@ -45,6 +64,14 @@ class Layout extends Component {
 		}
 	};
 
+	state = {
+		location: { city: 'Cairo, Egypt', lat: 30.06263, lng: 31.24967 },
+		units: 'metric',
+		btnIcon: 'location arrow',
+		fetchCurrentLocationHandler: this.fetchCurrentLocationHandler,
+		_suggestionSelect: this._suggestionSelect
+	};
+
 	render() {
 		console.log(this.state);
 
@@ -54,13 +81,9 @@ class Layout extends Component {
 					<NavMenu />
 				</nav>
 				<header>
-					<Controls
-						location={this.state.location}
-						selected={this._suggestionSelect}
-						clicked={this.fetchCurrentLocationHandler}
-						locating={this.state.locating}
-						btnIcon={this.state.btnIcon}
-					/>
+					<MainContext.Provider value={this.state}>
+						<Controls />
+					</MainContext.Provider>
 				</header>
 				<main>
 					<MainWeatherInfo

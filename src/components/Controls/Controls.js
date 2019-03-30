@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 import MapboxAutocomplete from 'react-mapbox-autocomplete';
+import MainContext from '../../context/main-context';
 import classes from './Controls.module.css';
 
-const controls = (props) => {
-	return (
-		<div className={classes.Controls}>
-			<div>
-				<Button icon onClick={props.clicked} loading={props.locating}>
-					<Icon name={props.btnIcon} />
-				</Button>
-			</div>
-			<div style={{ width: '45%' }}>
-				<MapboxAutocomplete
-					publicKey={process.env.REACT_APP_MAPBOX_PUBLIC_KEY}
-					onSuggestionSelect={props.selected}
-					placeholder="Search Cities..."
-				/>
-			</div>
-		</div>
-	);
-};
+class Controls extends Component {
+	render() {
+		return (
+			<MainContext.Consumer>
+				{(context) => (
+					<div className={classes.Controls}>
+						<div>
+							<Button
+								icon
+								onClick={context.fetchCurrentLocationHandler}
+							>
+								<Icon name={context.btnIcon} />
+							</Button>
+						</div>
+						<div style={{ width: '45%' }}>
+							<MapboxAutocomplete
+								publicKey={
+									process.env.REACT_APP_MAPBOX_PUBLIC_KEY
+								}
+								onSuggestionSelect={context._suggestionSelect}
+								placeholder="Search Cities..."
+							/>
+						</div>
+					</div>
+				)}
+			</MainContext.Consumer>
+		);
+	}
+}
 
-export default controls;
+export default Controls;
 
 // This component is turned into a stateful component
 // just to use componentdidupdate life cycle hook
