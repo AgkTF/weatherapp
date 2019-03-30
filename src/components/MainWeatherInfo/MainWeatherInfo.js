@@ -52,7 +52,6 @@ class MainWeatherInfo extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		console.log(prevProps, 'from componentDidUpdate');
 		console.log(this.props, 'from componentDidUpdate');
 
 		if (

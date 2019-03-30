@@ -6,7 +6,7 @@ import WeeklyForecast from '../../components/WeeklyForecast/WeeklyForecast';
 
 class Layout extends Component {
 	state = {
-		location: { city: 'Cairo', lat: 30.06263, lng: 31.24967 },
+		location: { city: 'Cairo, Egypt', lat: 30.06263, lng: 31.24967 },
 		units: 'metric'
 	};
 
