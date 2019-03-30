@@ -1,35 +1,34 @@
 import React, { Component } from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 import MapboxAutocomplete from 'react-mapbox-autocomplete';
-import MainContext from '../../context/main-context';
 import classes from './Controls.module.css';
 
 class Controls extends Component {
+	componentDidUpdate(prevProps) {
+		console.log('PREVPROPS', prevProps);
+		console.log('THIS.PROPS', this.props);
+
+		// if (prevProps.btnIcon !== this.props.btnIcon) {
+
+		// }
+	}
+
 	render() {
 		return (
-			<MainContext.Consumer>
-				{(context) => (
-					<div className={classes.Controls}>
-						<div>
-							<Button
-								icon
-								onClick={context.fetchCurrentLocationHandler}
-							>
-								<Icon name={context.btnIcon} />
-							</Button>
-						</div>
-						<div style={{ width: '45%' }}>
-							<MapboxAutocomplete
-								publicKey={
-									process.env.REACT_APP_MAPBOX_PUBLIC_KEY
-								}
-								onSuggestionSelect={context._suggestionSelect}
-								placeholder="Search Cities..."
-							/>
-						</div>
-					</div>
-				)}
-			</MainContext.Consumer>
+			<div className={classes.Controls}>
+				<div>
+					<Button icon onClick={this.props.clicked}>
+						<Icon name={this.props.btnIcon} />
+					</Button>
+				</div>
+				<div style={{ width: '45%' }}>
+					<MapboxAutocomplete
+						publicKey={process.env.REACT_APP_MAPBOX_PUBLIC_KEY}
+						onSuggestionSelect={this.props.selected}
+						placeholder="Search Cities..."
+					/>
+				</div>
+			</div>
 		);
 	}
 }

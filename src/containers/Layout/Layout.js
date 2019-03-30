@@ -3,7 +3,6 @@ import NavMenu from '../../components/Navigation/NavMenu';
 import Controls from '../../components/Controls/Controls';
 import MainWeatherInfo from '../../components/MainWeatherInfo/MainWeatherInfo';
 import WeeklyForecast from '../../components/WeeklyForecast/WeeklyForecast';
-import MainContext from '../../context/main-context';
 import axios from 'axios';
 
 class Layout extends Component {
@@ -81,9 +80,11 @@ class Layout extends Component {
 					<NavMenu />
 				</nav>
 				<header>
-					<MainContext.Provider value={this.state}>
-						<Controls />
-					</MainContext.Provider>
+					<Controls
+						clicked={this.fetchCurrentLocationHandler}
+						selected={this._suggestionSelect}
+						btnIcon={this.state.btnIcon}
+					/>
 				</header>
 				<main>
 					<MainWeatherInfo
