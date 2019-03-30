@@ -5,13 +5,25 @@ import MainWeatherInfo from '../../components/MainWeatherInfo/MainWeatherInfo';
 import WeeklyForecast from '../../components/WeeklyForecast/WeeklyForecast';
 
 class Layout extends Component {
-	state = { location: 'Cairo', units: 'metric' };
+	state = {
+		location: { city: 'Cairo', lat: 30.06263, lng: 31.24967 },
+		units: 'metric'
+	};
 
-	onInputChangeHandler = (event) => {
-		this.setState({ location: event.target.value });
+	_suggestionSelect = (result, lat, lng, text) => {
+		console.log(result, lat, lng, text);
+		this.setState({
+			location: {
+				city: result,
+				lat: parseFloat(lat),
+				lng: parseFloat(lng)
+			}
+		});
 	};
 
 	render() {
+		console.log(this.state);
+
 		return (
 			<>
 				<nav>
@@ -20,13 +32,13 @@ class Layout extends Component {
 				<header>
 					<Controls
 						location={this.state.location}
-						changed={this.onInputChangeHandler}
+						selected={this._suggestionSelect}
 					/>
 				</header>
 				<main>
 					<MainWeatherInfo
 						location={this.state.location}
-						unit={this.state.units}
+						units={this.state.units}
 					/>
 					<WeeklyForecast />
 				</main>

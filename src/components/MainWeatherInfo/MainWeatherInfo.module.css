@@ -17,6 +17,12 @@
 	font-size: 4rem;
 }
 
+.LocationSubheader {
+	margin-top: 1.75rem;
+	margin-bottom: 1.75rem;
+	font-size: 2.6rem;
+}
+
 .Subheader1 {
 	margin-top: 2rem;
 	font-size: 1.25rem;
@@ -25,4 +31,12 @@
 .Subheader2 {
 	margin-top: 1rem;
 	font-size: 1.25rem;
+}
+
+@media (max-width: 830px) {
+	.LocationSubheader {
+		margin-top: 1.75rem;
+		margin-bottom: 1.75rem;
+		font-size: 1.75rem;
+	}
 }
