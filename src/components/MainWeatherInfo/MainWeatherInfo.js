@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../assets/weather-icons/css/weather-icons.min.css';
 import DateTime from '../DateTime/DateTime';
-import axios from '../../axios-weather';
+import axios from 'axios';
 import classes from './MainWeatherInfo.module.css';
 
 class MainWeatherInfo extends Component {
@@ -63,11 +63,11 @@ class MainWeatherInfo extends Component {
 		} else {
 			axios
 				.get(
-					`?lat=${this.props.location.lat}&lon=${
-						this.props.location.lng
-					}&units=${this.props.units}&appid=${
-						process.env.REACT_APP_APPID
-					}`
+					`https://api.openweathermap.org/data/2.5/weather?lat=${
+						this.props.location.lat
+					}&lon=${this.props.location.lng}&units=${
+						this.props.units
+					}&appid=${process.env.REACT_APP_APPID}`
 				)
 				.then((response) => {
 					console.log(response);

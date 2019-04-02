@@ -91,7 +91,7 @@ class Layout extends Component {
 						location={this.state.location}
 						units={this.state.units}
 					/>
-					<WeeklyForecast />
+					<WeeklyForecast location={this.state.location} />
 				</main>
 			</>
 		);
