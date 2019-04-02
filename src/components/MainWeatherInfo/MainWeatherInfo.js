@@ -84,7 +84,11 @@ class MainWeatherInfo extends Component {
 						weatherIconId = `wi wi-owm-day-${
 							response.data.weather[0].id
 						}`;
-					} else if (date.getHours() >= sunset.getHours()) {
+					} else if (
+						date.getHours() >= sunset.getHours() ||
+						(date.getHours() >= 0 &&
+							date.getHours() < sunrise.getHours())
+					) {
 						weatherIconId = `wi wi-owm-night-${
 							response.data.weather[0].id
 						}`;
