@@ -3,6 +3,7 @@ import NavMenu from '../../components/Navigation/NavMenu';
 import Controls from '../../components/Controls/Controls';
 import MainWeatherInfo from '../../components/MainWeatherInfo/MainWeatherInfo';
 import WeeklyForecast from '../../components/WeeklyForecast/WeeklyForecast';
+import Landing from '../../components/Landing/Landing';
 import axios from 'axios';
 
 class Layout extends Component {
@@ -77,7 +78,7 @@ class Layout extends Component {
 		return (
 			<>
 				<nav>
-					<NavMenu />
+					<NavMenu size="large" />
 				</nav>
 				<header>
 					<Controls
@@ -87,11 +88,12 @@ class Layout extends Component {
 					/>
 				</header>
 				<main>
-					<MainWeatherInfo
+					{/* <MainWeatherInfo
 						location={this.state.location}
 						units={this.state.units}
 					/>
-					<WeeklyForecast location={this.state.location} />
+					<WeeklyForecast location={this.state.location} /> */}
+					<Landing />
 				</main>
 			</>
 		);

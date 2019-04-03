@@ -1,0 +1,15 @@
+.Landing {
+	text-align: center;
+}
+
+.Landing > h1 {
+	margin-top: calc(50vh - 300px);
+	font-weight: 700;
+	font-size: 3rem;
+}
+
+.Subheader {
+	font-weight: 400;
+	font-size: 1.2rem;
+	margin-bottom: 1.5rem;
+}

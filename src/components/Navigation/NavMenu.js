@@ -10,7 +10,7 @@ export default class NavMenu extends Component {
 		const { activeItem } = this.state;
 
 		return (
-			<Menu inverted>
+			<Menu inverted size={this.props.size}>
 				<Menu.Item header>WeatherApp</Menu.Item>
 				<Menu.Item
 					name="home"
