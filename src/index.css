@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
 body {
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	height: 100%;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
 		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-image: linear-gradient(
+		var(--main-bg-color),
+		var(--second-bg-color),
+		var(--third-bg-color),
+		var(--final-bg-color)
+	) !important;
+	color: aliceblue !important;
+	--main-bg-color: #7874f2;
+	--second-bg-color: #8e98f5;
+	--third-bg-color: #b1cbfa;
+	--final-bg-color: #dfe2fe;
 }

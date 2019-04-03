@@ -78,7 +78,7 @@ class Layout extends Component {
 		return (
 			<>
 				<nav>
-					<NavMenu size="large" />
+					<NavMenu size="small" />
 				</nav>
 				<header>
 					<Controls
@@ -88,12 +88,11 @@ class Layout extends Component {
 					/>
 				</header>
 				<main>
-					{/* <MainWeatherInfo
+					<MainWeatherInfo
 						location={this.state.location}
 						units={this.state.units}
 					/>
-					<WeeklyForecast location={this.state.location} /> */}
-					<Landing />
+					<WeeklyForecast location={this.state.location} />
 				</main>
 			</>
 		);

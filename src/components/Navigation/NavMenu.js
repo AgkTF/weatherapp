@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
+import classes from './NavMenu.module.css';
 
 export default class NavMenu extends Component {
 	state = { activeItem: 'home' };
@@ -10,8 +11,13 @@ export default class NavMenu extends Component {
 		const { activeItem } = this.state;
 
 		return (
-			<Menu inverted size={this.props.size}>
-				<Menu.Item header>WeatherApp</Menu.Item>
+			<Menu
+				borderless
+				inverted
+				size={this.props.size}
+				className={classes.NavMenu}
+			>
+				<Menu.Item className={classes.Logo}>WeatherApp</Menu.Item>
 				<Menu.Item
 					name="home"
 					active={activeItem === 'home'}

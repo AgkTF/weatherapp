@@ -1,0 +1,10 @@
+.NavMenu {
+	background: var(--main-bg-color) !important;
+	border: none !important;
+	font-size: 1.1rem !important;
+}
+
+.Logo {
+	font-family: 'Berkshire Swash';
+	font-size: 1.4rem;
+}
