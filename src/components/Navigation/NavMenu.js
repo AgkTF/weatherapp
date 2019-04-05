@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
+import Logo from '../UI/Logo/Logo';
 import classes from './NavMenu.module.css';
 
 export default class NavMenu extends Component {
@@ -12,6 +13,9 @@ export default class NavMenu extends Component {
 
 		return (
 			<Menu borderless size={this.props.size} className={classes.NavMenu}>
+				<Menu.Item>
+					<Logo />
+				</Menu.Item>
 				<Menu.Item className={classes.Logo}>WeatherApp</Menu.Item>
 				<Menu.Item
 					name="home"
