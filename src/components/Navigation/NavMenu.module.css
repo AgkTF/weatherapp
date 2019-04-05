@@ -1,7 +1,7 @@
 .NavMenu {
-	background: var(--main-bg-color) !important;
-	border: none !important;
 	font-size: 1.1rem !important;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 .Logo {

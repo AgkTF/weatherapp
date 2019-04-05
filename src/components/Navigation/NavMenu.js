@@ -11,12 +11,7 @@ export default class NavMenu extends Component {
 		const { activeItem } = this.state;
 
 		return (
-			<Menu
-				borderless
-				inverted
-				size={this.props.size}
-				className={classes.NavMenu}
-			>
+			<Menu borderless size={this.props.size} className={classes.NavMenu}>
 				<Menu.Item className={classes.Logo}>WeatherApp</Menu.Item>
 				<Menu.Item
 					name="home"

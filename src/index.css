@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
 
+* {
+	--main-color: #9db8c6 !important;
+	color: var(--main-color) !important;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	background-image: url(./assets/photos/regtangle-01.jpg) !important;
+	background-position: center center !important;
+	background-size: cover !important;
+	backface-visibility: hidden;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
 		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-image: linear-gradient(
-		var(--main-bg-color),
-		var(--second-bg-color),
-		var(--third-bg-color),
-		var(--final-bg-color)
-	) !important;
-	color: aliceblue !important;
-	--main-bg-color: #7874f2;
-	--second-bg-color: #8e98f5;
-	--third-bg-color: #b1cbfa;
-	--final-bg-color: #dfe2fe;
 }
