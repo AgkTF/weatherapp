@@ -7,6 +7,7 @@ const navItems = (props) => {
 	return (
 		<div className={classes.NavItems}>
 			<div className={classes.Title}>WeatherApp</div>
+			<NavItem link="/">Home</NavItem>
 			<div className={classes.Controls}>
 				<Controls
 					clicked={props.clicked}
@@ -14,8 +15,8 @@ const navItems = (props) => {
 					btnIcon={props.btnIcon}
 				/>
 			</div>
-			<NavItem>Signin</NavItem>
-			<NavItem>Signup</NavItem>
+			<NavItem link="/forecast">Forecast</NavItem>
+			<NavItem link="/signup">Signup</NavItem>
 		</div>
 	);
 };

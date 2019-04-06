@@ -1,9 +1,12 @@
 import React from 'react';
 import Controls from '../../components/Controls/Controls';
 import { Header } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom';
 import classes from './Landing.module.css';
 
 const landing = (props) => {
+	// console.log(props);
+
 	return (
 		<div className={classes.Landing}>
 			<h1>WeatherApp</h1>
@@ -15,4 +18,4 @@ const landing = (props) => {
 	);
 };
 
-export default landing;
+export default withRouter(landing);

@@ -4,7 +4,7 @@ import WeeklyForecast from '../WeeklyForecast/WeeklyForecast';
 import Landing from '../../components/Landing/Landing';
 import NavItems from '../../components/Navigation/NavItems/NavItems';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 class Layout extends Component {
 	_suggestionSelect = (result, lat, lng, text) => {
@@ -16,9 +16,16 @@ class Layout extends Component {
 		updatedLocation.lat = lat;
 		updatedLocation.lng = lng;
 
-		this.setState({
-			location: updatedLocation
-		});
+		this.setState(
+			{
+				location: updatedLocation
+			},
+			() => {
+				this.props.history.push(
+					`/forecast/${this.state.location.city}`
+				);
+			}
+		);
 	};
 
 	fetchCurrentLocationHandler = () => {
@@ -64,6 +71,10 @@ class Layout extends Component {
 		}
 	};
 
+	componentDidMount() {
+		console.log(this.props);
+	}
+
 	state = {
 		location: { city: 'Cairo, Egypt', lat: 30.06263, lng: 31.24967 },
 		units: 'metric',
@@ -74,7 +85,6 @@ class Layout extends Component {
 
 	render() {
 		console.log(this.state);
-
 		return (
 			<>
 				<nav>
@@ -85,16 +95,27 @@ class Layout extends Component {
 					/>
 				</nav>
 				<main>
-					{/* <MainWeatherInfo
-						location={this.state.location}
-						units={this.state.units}
-					/>
-					<WeeklyForecast location={this.state.location} /> */}
-					<Route path="/" component={Landing} />
+					<Switch>
+						<Route
+							path="/forecast/:city"
+							render={() => (
+								<>
+									<MainWeatherInfo
+										location={this.state.location}
+										units={this.state.units}
+									/>
+									<WeeklyForecast
+										location={this.state.location}
+									/>
+								</>
+							)}
+						/>
+						<Route path="/" component={Landing} />
+					</Switch>
 				</main>
 			</>
 		);
 	}
 }
 
-export default Layout;
+export default withRouter(Layout);
