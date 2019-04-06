@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import MainWeatherInfo from '../../components/MainWeatherInfo/MainWeatherInfo';
-import WeeklyForecast from '../../components/WeeklyForecast/WeeklyForecast';
-// import Landing from '../../components/Landing/Landing';
+import MainWeatherInfo from '../MainWeatherInfo/MainWeatherInfo';
+import WeeklyForecast from '../WeeklyForecast/WeeklyForecast';
+import Landing from '../../components/Landing/Landing';
 import NavItems from '../../components/Navigation/NavItems/NavItems';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 class Layout extends Component {
 	_suggestionSelect = (result, lat, lng, text) => {
@@ -84,11 +85,12 @@ class Layout extends Component {
 					/>
 				</nav>
 				<main>
-					<MainWeatherInfo
+					{/* <MainWeatherInfo
 						location={this.state.location}
 						units={this.state.units}
 					/>
-					<WeeklyForecast location={this.state.location} />
+					<WeeklyForecast location={this.state.location} /> */}
+					<Route path="/" component={Landing} />
 				</main>
 			</>
 		);

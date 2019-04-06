@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DailyForecast from './DailyForecast/DailyForecast';
+import DailyForecast from '../../components/DailyForecast/DailyForecast';
 import Moment from 'react-moment';
 import axios from 'axios';
 import classes from './WeeklyForecast.module.css';
