@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import NavMenu from '../../components/Navigation/NavMenu';
-import Controls from '../../components/Controls/Controls';
 import MainWeatherInfo from '../../components/MainWeatherInfo/MainWeatherInfo';
 import WeeklyForecast from '../../components/WeeklyForecast/WeeklyForecast';
-import Landing from '../../components/Landing/Landing';
+// import Landing from '../../components/Landing/Landing';
+import NavItems from '../../components/Navigation/NavItems/NavItems';
 import axios from 'axios';
 
 class Layout extends Component {
@@ -78,15 +77,12 @@ class Layout extends Component {
 		return (
 			<>
 				<nav>
-					<NavMenu size="small" />
-				</nav>
-				<header>
-					<Controls
+					<NavItems
 						clicked={this.fetchCurrentLocationHandler}
 						selected={this._suggestionSelect}
 						btnIcon={this.state.btnIcon}
 					/>
-				</header>
+				</nav>
 				<main>
 					<MainWeatherInfo
 						location={this.state.location}

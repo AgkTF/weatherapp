@@ -4,6 +4,9 @@
 	z-index: 0;
 	box-sizing: border-box;
 	margin: auto -5px;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	will-change: transform;
 }
 
 .Logo div {

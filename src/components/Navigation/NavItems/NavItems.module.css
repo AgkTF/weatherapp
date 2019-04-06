@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+.NavItems {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1.5fr 4fr 0.75fr 0.75fr;
+	height: 100%;
+	text-align: center;
+	align-items: center;
+	justify-content: space-between;
+	grid-auto-flow: column;
+}
+
+.Title {
+	margin: 10px 0;
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	font-family: 'Berkshire Swash';
+	font-size: 1.7rem;
+}

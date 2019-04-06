@@ -21,10 +21,11 @@ class Controls extends Component {
 						<Icon name={this.props.btnIcon} />
 					</Button>
 				</div>
-				<div style={{ width: '45%' }}>
+				<div style={{ width: '100%' }}>
 					<MapboxAutocomplete
 						publicKey={process.env.REACT_APP_MAPBOX_PUBLIC_KEY}
 						onSuggestionSelect={this.props.selected}
+						onClickOutside={this.props.closeMenu}
 						placeholder="Search Cities..."
 					/>
 				</div>

@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
 
 * {
-	--main-color: #9db8c6 !important;
+	/* --main-color: rgb(62, 119, 173) !important; */
+	--main-color: #70a2ce !important;
 	color: var(--main-color) !important;
 }
 

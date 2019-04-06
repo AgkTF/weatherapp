@@ -1,0 +1,24 @@
+.NavItem {
+	margin: 10px 0;
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	font-size: 1.2rem;
+}
+
+.NavItem a {
+	color: var(--main-color);
+	text-decoration: none;
+	width: 100%;
+	box-sizing: border-box;
+	display: block;
+	/* border-radius: 57% 43% 68% 32% / 5% 53% 47% 95%; */
+	border-radius: 50%;
+	background-color: transparent;
+}
+
+.NavItem a:hover,
+.NavItem a:active,
+.NavItem a.active {
+	background-color: #f1d9e6;
+}
