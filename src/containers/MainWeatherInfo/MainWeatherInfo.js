@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import '../../assets/weather-icons/css/weather-icons.min.css';
 import DateTime from '../../components/DateTime/DateTime';
 import axios from 'axios';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './MainWeatherInfo.module.css';
 
 class MainWeatherInfo extends Component {
 	state = {
 		weatherIcon: 'wi wi-owm-night-321',
 		weatherSummary: 'Breezy starting this evening',
-		temp: 33
+		temp: 33,
+		loading: true
 	};
 
 	componentDidUpdate(prevProps) {
@@ -57,7 +59,8 @@ class MainWeatherInfo extends Component {
 					this.setState({
 						weatherIcon: weatherIconId,
 						weatherSummary: response.data.weather[0].description,
-						temp: Math.floor(response.data.main.temp)
+						temp: Math.floor(response.data.main.temp),
+						loading: false
 					});
 				})
 
@@ -70,7 +73,9 @@ class MainWeatherInfo extends Component {
 	}
 
 	render() {
-		return (
+		let mainWeather = this.state.loading ? (
+			<Spinner />
+		) : (
 			<div className={classes.Container}>
 				<div className={classes.Header}>
 					<i className={`${this.state.weatherIcon}`} />
@@ -89,6 +94,7 @@ class MainWeatherInfo extends Component {
 				</div>
 			</div>
 		);
+		return mainWeather;
 	}
 }
 
