@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MainWeatherInfo from '../MainWeatherInfo/MainWeatherInfo';
 import WeeklyForecast from '../WeeklyForecast/WeeklyForecast';
 import Landing from '../../components/Landing/Landing';
-import NavItems from '../../components/Navigation/NavItems/NavItems';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+// import NavItems from '../../components/Navigation/NavItems/NavItems';
 import axios from 'axios';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
@@ -85,15 +86,21 @@ class Layout extends Component {
 
 	render() {
 		console.log(this.state);
+
 		return (
 			<>
-				<nav>
+				{/* <nav>
 					<NavItems
 						clicked={this.fetchCurrentLocationHandler}
 						selected={this._suggestionSelect}
 						btnIcon={this.state.btnIcon}
 					/>
-				</nav>
+				</nav> */}
+				<Toolbar
+					clicked={this.fetchCurrentLocationHandler}
+					selected={this._suggestionSelect}
+					btnIcon={this.state.btnIcon}
+				/>
 				<main>
 					<Switch>
 						<Route

@@ -1,15 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
 
 .NavItems {
-	margin: 0;
-	padding: 0;
+	margin: 5px;
 	display: grid;
-	grid-template-columns: 1fr 0.75fr 3fr 0.75fr 0.75fr;
-	height: 100%;
+	grid-template-columns: 1.75fr 3fr 1.5fr;
+	grid-gap: 5px;
 	text-align: center;
-	align-items: center;
 	justify-content: space-between;
 	grid-auto-flow: column;
+}
+
+.ContainerLeft {
+	height: 100%;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr 0.75fr;
+	text-align: center;
+	align-items: center;
+	justify-self: left;
+}
+
+.ContainerRight {
+	height: 100%;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 0.75fr 0.75fr;
+	text-align: center;
+	align-items: center;
+	justify-self: right;
 }
 
 .Title {

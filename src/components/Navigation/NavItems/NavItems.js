@@ -6,8 +6,10 @@ import classes from './NavItems.module.css';
 const navItems = (props) => {
 	return (
 		<div className={classes.NavItems}>
-			<div className={classes.Title}>WeatherApp</div>
-			<NavItem link="/">Home</NavItem>
+			<div className={classes.ContainerLeft}>
+				<div className={classes.Title}>WeatherApp</div>
+				<NavItem link="/">Home</NavItem>
+			</div>
 			<div className={classes.Controls}>
 				<Controls
 					clicked={props.clicked}
@@ -15,8 +17,10 @@ const navItems = (props) => {
 					btnIcon={props.btnIcon}
 				/>
 			</div>
-			<NavItem link="/forecast">Forecast</NavItem>
-			<NavItem link="/signup">Signup</NavItem>
+			<div className={classes.ContainerRight}>
+				<NavItem link="/forecast">Forecast</NavItem>
+				<NavItem link="/signup">Signup</NavItem>
+			</div>
 		</div>
 	);
 };
