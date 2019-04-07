@@ -1,0 +1,54 @@
+.LocationCard1 {
+	width: 200px;
+	height: 250px;
+	border: 1px solid var(--backdrop-color);
+	border-radius: 10px;
+	background: linear-gradient(
+			rgba(170, 168, 168, 0.45),
+			rgba(71, 70, 70, 0.45)
+		),
+		/* bottom, image */
+			url(../../../assets/photos/spencer-davis-1476607-unsplash.jpg);
+	background-position: center center;
+	background-size: cover;
+}
+
+.LocationCard2 {
+	width: 200px;
+	height: 250px;
+	border: 1px solid var(--backdrop-color);
+	border-radius: 10px;
+	background: linear-gradient(
+			rgba(170, 168, 168, 0.45),
+			rgba(71, 70, 70, 0.45)
+		),
+		/* bottom, image */
+			url(../../../assets/photos/mauricio-artieda-453516-unsplash.jpg);
+	background-position: center center;
+	background-size: cover;
+}
+
+.LocationCard3 {
+	width: 200px;
+	height: 250px;
+	border: 1px solid var(--backdrop-color);
+	border-radius: 10px;
+	background: linear-gradient(
+			rgba(170, 168, 168, 0.45),
+			rgba(71, 70, 70, 0.45)
+		),
+		/* bottom, image */
+			url(../../../assets/photos/ian-tuck-1336274-unsplash.jpg);
+	background-position: center center;
+	background-size: cover;
+}
+
+p {
+	font-size: 1.3rem;
+	font-weight: 700;
+	position: relative;
+	top: 80%;
+	color: rgb(245, 245, 179);
+	text-shadow: 3px 2px 6px rgba(150, 150, 150, 0.51);
+	background-color: rgba(129, 126, 122, 0.514);
+}

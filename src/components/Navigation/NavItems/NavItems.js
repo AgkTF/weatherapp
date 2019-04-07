@@ -18,7 +18,7 @@ const navItems = (props) => {
 				/>
 			</div>
 			<div className={classes.ContainerRight}>
-				<NavItem link="/forecast">Forecast</NavItem>
+				<NavItem link="/signin">Signin</NavItem>
 				<NavItem link="/signup">Signup</NavItem>
 			</div>
 		</div>
