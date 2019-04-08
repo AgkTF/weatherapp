@@ -1,0 +1,19 @@
+.Footer {
+	height: 75px;
+	width: 40%;
+	box-sizing: border-box;
+	margin: 5px auto;
+	text-align: center;
+	position: fixed;
+	left: 30%;
+	top: calc(100vh - 88px);
+	padding: 5px 0;
+	background-color: rgba(85, 83, 83, 0.658);
+	border: 1px solid var(--main-color);
+	border-radius: 10px;
+}
+
+span.Name {
+	font-weight: 600;
+	color: beige;
+}

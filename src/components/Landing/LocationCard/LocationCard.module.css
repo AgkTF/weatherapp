@@ -43,7 +43,27 @@
 	background-size: cover;
 }
 
-p {
+.LocationCard1 p {
+	font-size: 1.3rem;
+	font-weight: 700;
+	position: relative;
+	top: 80%;
+	color: rgb(245, 245, 179);
+	text-shadow: 3px 2px 6px rgba(150, 150, 150, 0.51);
+	background-color: rgba(129, 126, 122, 0.514);
+}
+
+.LocationCard2 p {
+	font-size: 1.3rem;
+	font-weight: 700;
+	position: relative;
+	top: 80%;
+	color: rgb(245, 245, 179);
+	text-shadow: 3px 2px 6px rgba(150, 150, 150, 0.51);
+	background-color: rgba(129, 126, 122, 0.514);
+}
+
+.LocationCard3 p {
 	font-size: 1.3rem;
 	font-weight: 700;
 	position: relative;

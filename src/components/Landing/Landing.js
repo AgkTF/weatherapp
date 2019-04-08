@@ -1,5 +1,6 @@
 import React from 'react';
 import LocationCard from '../../components/Landing/LocationCard/LocationCard';
+import Footer from '../Landing/Footer/Footer';
 import { Header } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import classes from './Landing.module.css';
@@ -15,6 +16,9 @@ const landing = (props) => {
 			<div className={classes.LocationCards}>
 				<LocationCard />
 			</div>
+			<footer>
+				<Footer />
+			</footer>
 		</div>
 	);
 };
