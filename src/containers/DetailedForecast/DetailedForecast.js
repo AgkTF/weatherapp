@@ -58,50 +58,50 @@ class DetailedForecast extends Component {
 	}
 
 	render() {
-		let daySummary = null;
-		let hourSummary = null;
+		let dayDetails = null;
+		let hourDetails = null;
 		if (this.state.dailyWeatherData.length === 0) {
-			hourSummary = <Spinner />;
-			daySummary = <Spinner />;
+			hourDetails = <Spinner />;
+			dayDetails = <Spinner />;
 		} else {
-			hourSummary = (
+			hourDetails = (
 				<>
-					{this.state.hourlyWeatherData.map((hourSummary) => (
+					{this.state.hourlyWeatherData.map((hourDetails) => (
 						<SingleForecast
 							time={
 								<Moment unix format="h a">
-									{hourSummary.time}
+									{hourDetails.time}
 								</Moment>
 							}
-							weatherIcon={hourSummary.icon}
+							weatherIcon={hourDetails.icon}
 							maxTemp={`${Math.floor(
-								hourSummary.apparentTemperature
+								hourDetails.apparentTemperature
 							)}°`}
-							precip={hourSummary.precipProbability.toFixed(0)}
-							key={hourSummary.time}
+							precip={hourDetails.precipProbability.toFixed(0)}
+							key={hourDetails.time}
 						/>
 					))}
 				</>
 			);
 
-			daySummary = (
+			dayDetails = (
 				<>
-					{this.state.dailyWeatherData.map((daySummary) => (
+					{this.state.dailyWeatherData.map((dayDetails) => (
 						<SingleForecast
 							time={
 								<Moment unix format="dddd">
-									{daySummary.time}
+									{dayDetails.time}
 								</Moment>
 							}
-							weatherIcon={daySummary.icon}
+							weatherIcon={dayDetails.icon}
 							maxTemp={`${Math.floor(
-								daySummary.apparentTemperatureMax
+								dayDetails.apparentTemperatureMax
 							)}°`}
 							minTemp={`${Math.floor(
-								daySummary.apparentTemperatureMin
+								dayDetails.apparentTemperatureMin
 							)}°`}
-							precip={daySummary.precipProbability.toFixed(0)}
-							key={daySummary.time}
+							precip={dayDetails.precipProbability.toFixed(0)}
+							key={dayDetails.time}
 						/>
 					))}
 				</>
@@ -109,11 +109,11 @@ class DetailedForecast extends Component {
 		}
 		return (
 			<div className={classes.Container}>
-				<div className={classes.Title}>Hourly</div>
-				<div className={classes.DetailedForecast}>{hourSummary}</div>
+				<div className={classes.Title}>Hourly Summary:</div>
+				<div className={classes.DetailedForecast}>{hourDetails}</div>
 
-				<div className={classes.Title}>Daily</div>
-				<div className={classes.DetailedForecast}>{daySummary}</div>
+				<div className={classes.Title}>Daily Summary: </div>
+				<div className={classes.DetailedForecast}>{dayDetails}</div>
 			</div>
 		);
 	}
