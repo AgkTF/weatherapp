@@ -7,8 +7,7 @@ import classes from './DetailedForecast.module.css';
 
 class DetailedForecast extends Component {
 	state = {
-		dailyWeatherData: [],
-		hourlyWeatherData: []
+		weatherData: null
 	};
 
 	fetchWeatherData = (url) => {
@@ -16,16 +15,10 @@ class DetailedForecast extends Component {
 			.get(url)
 			.then((response) => {
 				console.log(response);
-				// const updatedWeatherData = response.data.daily.data;
-				const dailyWeatherData = response.data.daily.data;
-
-				const hourlyWeatherData = response.data.hourly.data.filter(
-					(hourlySummary, i) => i % 3 === 0 && i <= 24 && i > 0
-				);
+				const updatedWeatherData = response.data;
 
 				this.setState({
-					dailyWeatherData: dailyWeatherData,
-					hourlyWeatherData: hourlyWeatherData
+					weatherData: updatedWeatherData
 				});
 			})
 			.catch((error) => console.log(error));
@@ -33,7 +26,7 @@ class DetailedForecast extends Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		if (
-			prevState.dailyWeatherData.length === 0 ||
+			!prevState.weatherData ||
 			(prevProps.location.lat !== this.props.location.lat &&
 				prevProps.location.lng !== this.props.location.lng &&
 				prevProps.location.city !== this.props.location.city)
@@ -58,15 +51,22 @@ class DetailedForecast extends Component {
 	}
 
 	render() {
-		let dayDetails = null;
 		let hourDetails = null;
-		if (this.state.dailyWeatherData.length === 0) {
+		let dayDetails = null;
+
+		if (!this.state.weatherData) {
 			hourDetails = <Spinner />;
 			dayDetails = <Spinner />;
 		} else {
+			const copiedState = { ...this.state.weatherData };
+			console.log(copiedState);
+
+			const hourlyWeatherData = copiedState.hourly.data.filter(
+				(hourlySummary, i) => i % 3 === 0 && i <= 24 && i > 0
+			);
 			hourDetails = (
 				<>
-					{this.state.hourlyWeatherData.map((hourDetails) => (
+					{hourlyWeatherData.map((hourDetails) => (
 						<SingleForecast
 							time={
 								<Moment unix format="h a">
@@ -86,7 +86,7 @@ class DetailedForecast extends Component {
 
 			dayDetails = (
 				<>
-					{this.state.dailyWeatherData.map((dayDetails) => (
+					{this.state.weatherData.daily.data.map((dayDetails) => (
 						<SingleForecast
 							time={
 								<Moment unix format="dddd">
@@ -109,10 +109,10 @@ class DetailedForecast extends Component {
 		}
 		return (
 			<div className={classes.Container}>
-				<div className={classes.Title}>Hourly Summary:</div>
+				<div className={classes.Title}>Hourly</div>
 				<div className={classes.DetailedForecast}>{hourDetails}</div>
 
-				<div className={classes.Title}>Daily Summary: </div>
+				<div className={classes.Title}>Daily</div>
 				<div className={classes.DetailedForecast}>{dayDetails}</div>
 			</div>
 		);
