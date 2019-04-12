@@ -1,6 +1,19 @@
+.Container {
+	margin: 5vh 20px;
+}
+
 .WeeklyForecast {
-	margin-top: 10vh;
+	padding: 20px 0;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	grid-row-gap: 2em;
+	border: 1px solid black;
+	border-radius: 25px;
+	background: var(--backdrop-color);
+}
+
+.Title {
+	padding: 10px 20px;
+	font-weight: 500;
+	font-size: 1.3rem;
 }

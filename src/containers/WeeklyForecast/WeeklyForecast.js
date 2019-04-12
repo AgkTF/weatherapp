@@ -74,7 +74,12 @@ class WeeklyForecast extends Component {
 				</>
 			);
 		}
-		return <div className={classes.WeeklyForecast}>{daySummary} </div>;
+		return (
+			<div className={classes.Container}>
+				<div className={classes.Title}>Daily</div>
+				<div className={classes.WeeklyForecast}>{daySummary}</div>
+			</div>
+		);
 	}
 }
 

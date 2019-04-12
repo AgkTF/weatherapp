@@ -5,7 +5,7 @@ import classes from './DailyForecast.module.css';
 const dailyForecast = (props) => {
 	return (
 		<div className={classes.DailyForecast}>
-			<h2>{props.weekday}</h2>
+			<h3>{props.weekday}</h3>
 			<div className={classes.WeatherIcon}>
 				<i className={`wi wi-forecast-io-${props.weatherIcon}`} />
 			</div>

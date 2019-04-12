@@ -19,7 +19,7 @@
 	margin: 100px auto;
 	width: 90%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 	grid-gap: 20px;
 	justify-items: center;
 	align-items: center;

@@ -3,7 +3,7 @@
 * {
 	/* --main-color: rgb(62, 119, 173) !important; */
 	--main-color: #010203;
-	--backdrop-color: #7a7979;
+	--backdrop-color: #302f2f;
 	--secondary-color: #ffdd42;
 	--text-color: #ffffff;
 	color: var(--text-color);

@@ -5,6 +5,7 @@
 .WeatherIcon {
 	font-size: 3rem;
 	padding-bottom: 1rem;
+	font-weight: 200;
 }
 
 .Temps {
