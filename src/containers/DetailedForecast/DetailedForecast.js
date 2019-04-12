@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import SingleForecast from '../../components/SingleForecast/SingleForecast';
 import Moment from 'react-moment';
 import axios from 'axios';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import classes from './DetailedForecast.module.css';
 
 class DetailedForecast extends Component {
 	state = {
-		weatherData: []
+		dailyWeatherData: [],
+		hourlyWeatherData: []
 	};
 
 	fetchWeatherData = (url) => {
@@ -14,15 +16,24 @@ class DetailedForecast extends Component {
 			.get(url)
 			.then((response) => {
 				console.log(response);
-				const updatedWeatherData = response.data.daily.data;
-				this.setState({ weatherData: updatedWeatherData });
+				// const updatedWeatherData = response.data.daily.data;
+				const dailyWeatherData = response.data.daily.data;
+
+				const hourlyWeatherData = response.data.hourly.data.filter(
+					(hourlySummary, i) => i % 3 === 0 && i <= 24 && i > 0
+				);
+
+				this.setState({
+					dailyWeatherData: dailyWeatherData,
+					hourlyWeatherData: hourlyWeatherData
+				});
 			})
 			.catch((error) => console.log(error));
 	};
 
 	componentDidUpdate(prevProps, prevState) {
 		if (
-			prevState.weatherData.length === 0 ||
+			prevState.dailyWeatherData.length === 0 ||
 			(prevProps.location.lat !== this.props.location.lat &&
 				prevProps.location.lng !== this.props.location.lng &&
 				prevProps.location.city !== this.props.location.city)
@@ -48,25 +59,47 @@ class DetailedForecast extends Component {
 
 	render() {
 		let daySummary = null;
-		if (this.state.weatherData.length === 0) {
-			daySummary = <h3>Please enter a location</h3>;
+		let hourSummary = null;
+		if (this.state.dailyWeatherData.length === 0) {
+			hourSummary = <Spinner />;
+			daySummary = <Spinner />;
 		} else {
+			hourSummary = (
+				<>
+					{this.state.hourlyWeatherData.map((hourSummary) => (
+						<SingleForecast
+							time={
+								<Moment unix format="h a">
+									{hourSummary.time}
+								</Moment>
+							}
+							weatherIcon={hourSummary.icon}
+							maxTemp={`${Math.floor(
+								hourSummary.apparentTemperature
+							)}°`}
+							precip={hourSummary.precipProbability.toFixed(0)}
+							key={hourSummary.time}
+						/>
+					))}
+				</>
+			);
+
 			daySummary = (
 				<>
-					{this.state.weatherData.map((daySummary) => (
+					{this.state.dailyWeatherData.map((daySummary) => (
 						<SingleForecast
-							weekday={
+							time={
 								<Moment unix format="dddd">
 									{daySummary.time}
 								</Moment>
 							}
 							weatherIcon={daySummary.icon}
-							maxTemp={Math.floor(
+							maxTemp={`${Math.floor(
 								daySummary.apparentTemperatureMax
-							)}
-							minTemp={Math.floor(
+							)}°`}
+							minTemp={`${Math.floor(
 								daySummary.apparentTemperatureMin
-							)}
+							)}°`}
 							precip={daySummary.precipProbability.toFixed(0)}
 							key={daySummary.time}
 						/>
@@ -76,6 +109,9 @@ class DetailedForecast extends Component {
 		}
 		return (
 			<div className={classes.Container}>
+				<div className={classes.Title}>Hourly</div>
+				<div className={classes.DetailedForecast}>{hourSummary}</div>
+
 				<div className={classes.Title}>Daily</div>
 				<div className={classes.DetailedForecast}>{daySummary}</div>
 			</div>
