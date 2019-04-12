@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import DailyForecast from '../../components/DailyForecast/DailyForecast';
+import SingleForecast from '../../components/SingleForecast/SingleForecast';
 import Moment from 'react-moment';
 import axios from 'axios';
-import classes from './WeeklyForecast.module.css';
+import classes from './DetailedForecast.module.css';
 
-class WeeklyForecast extends Component {
+class DetailedForecast extends Component {
 	state = {
 		weatherData: []
 	};
@@ -54,7 +54,7 @@ class WeeklyForecast extends Component {
 			daySummary = (
 				<>
 					{this.state.weatherData.map((daySummary) => (
-						<DailyForecast
+						<SingleForecast
 							weekday={
 								<Moment unix format="dddd">
 									{daySummary.time}
@@ -77,10 +77,10 @@ class WeeklyForecast extends Component {
 		return (
 			<div className={classes.Container}>
 				<div className={classes.Title}>Daily</div>
-				<div className={classes.WeeklyForecast}>{daySummary}</div>
+				<div className={classes.DetailedForecast}>{daySummary}</div>
 			</div>
 		);
 	}
 }
 
-export default WeeklyForecast;
+export default DetailedForecast;

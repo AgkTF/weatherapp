@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../assets/weather-icons/css/weather-icons.min.css';
-import classes from './DailyForecast.module.css';
+import classes from './SingleForecast.module.css';
 
-const dailyForecast = (props) => {
+const singleForecast = (props) => {
 	return (
-		<div className={classes.DailyForecast}>
+		<div className={classes.SingleForecast}>
 			<h3>{props.weekday}</h3>
 			<div className={classes.WeatherIcon}>
 				<i className={`wi wi-forecast-io-${props.weatherIcon}`} />
@@ -21,4 +21,4 @@ const dailyForecast = (props) => {
 	);
 };
 
-export default dailyForecast;
+export default singleForecast;

@@ -2,7 +2,7 @@
 	margin: 5vh 20px;
 }
 
-.WeeklyForecast {
+.DetailedForecast {
 	padding: 20px 0;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

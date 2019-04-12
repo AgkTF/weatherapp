@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MainWeatherInfo from '../MainWeatherInfo/MainWeatherInfo';
-import WeeklyForecast from '../WeeklyForecast/WeeklyForecast';
+import DetailedForecast from '../DetailedForecast/DetailedForecast';
 import Landing from '../../components/Landing/Landing';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import axios from 'axios';
@@ -104,7 +104,7 @@ class Layout extends Component {
 										where={this.state.location}
 										units={this.state.units}
 									/>
-									<WeeklyForecast
+									<DetailedForecast
 										location={this.state.location}
 									/>
 								</>

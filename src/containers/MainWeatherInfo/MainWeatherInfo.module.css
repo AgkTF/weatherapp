@@ -34,22 +34,6 @@
 	font-size: 1.25rem;
 }
 
-.WeeklyForecast {
-	font-weight: 600;
-	font-size: 1.5rem;
-	margin: 2rem auto;
-	border: 1px soild black;
-	border-radius: 5px;
-	background-color: var(--main-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	height: 50px;
-	width: 100px;
-	transition: all 0.5s;
-}
-
 @media (max-width: 830px) {
 	.LocationSubheader {
 		margin-top: 1.75rem;
