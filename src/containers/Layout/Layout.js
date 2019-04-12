@@ -3,7 +3,6 @@ import MainWeatherInfo from '../MainWeatherInfo/MainWeatherInfo';
 import WeeklyForecast from '../WeeklyForecast/WeeklyForecast';
 import Landing from '../../components/Landing/Landing';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
-// import NavItems from '../../components/Navigation/NavItems/NavItems';
 import axios from 'axios';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
@@ -89,15 +88,9 @@ class Layout extends Component {
 
 		return (
 			<>
-				{/* <nav>
-					<NavItems
-						clicked={this.fetchCurrentLocationHandler}
-						selected={this._suggestionSelect}
-						btnIcon={this.state.btnIcon}
-					/>
-				</nav> */}
 				<Toolbar
 					clicked={this.fetchCurrentLocationHandler}
+					// FIXME: the button doesn't take the user to the weatherinfo page
 					selected={this._suggestionSelect}
 					btnIcon={this.state.btnIcon}
 				/>
@@ -105,10 +98,10 @@ class Layout extends Component {
 					<Switch>
 						<Route
 							path="/forecast/:city"
-							render={() => (
+							render={(props) => (
 								<>
 									<MainWeatherInfo
-										location={this.state.location}
+										where={this.state.location}
 										units={this.state.units}
 									/>
 									<WeeklyForecast

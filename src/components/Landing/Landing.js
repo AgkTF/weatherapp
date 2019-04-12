@@ -11,7 +11,9 @@ const landing = (props) => {
 			<h1>WeatherApp</h1>
 			<Header.Subheader className={classes.Subheader}>
 				Find accurate weather forecasts in your favorite places on earth
-				🌍
+				<span role="img" aria-label="globe">
+					🌍
+				</span>
 			</Header.Subheader>
 			<div className={classes.LocationCards}>
 				<LocationCard />

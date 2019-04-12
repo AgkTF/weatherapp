@@ -6,7 +6,11 @@ const footer = () => {
 	return (
 		<div className={classes.Footer}>
 			<p>
-				Created with ❤️ by <span className={classes.Name}>AgkTF</span>
+				Created with{' '}
+				<span role="img" aria-label="heart">
+					❤️
+				</span>{' '}
+				by <span className={classes.Name}>AgkTF</span>
 			</p>
 			<span>
 				<a href="https://github.com/AgkTF">

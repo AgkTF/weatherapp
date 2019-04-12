@@ -9,6 +9,17 @@ class WeeklyForecast extends Component {
 		weatherData: []
 	};
 
+	fetchWeatherData = (url) => {
+		axios
+			.get(url)
+			.then((response) => {
+				console.log(response);
+				const updatedWeatherData = response.data.daily.data;
+				this.setState({ weatherData: updatedWeatherData });
+			})
+			.catch((error) => console.log(error));
+	};
+
 	componentDidUpdate(prevProps, prevState) {
 		if (
 			prevState.weatherData.length === 0 ||
@@ -20,17 +31,19 @@ class WeeklyForecast extends Component {
 				this.props.location.lng
 			}?units=auto&exclude=minutely,alerts,flags`;
 
-			axios
-				.get(url)
-				.then((response) => {
-					console.log(response);
-					const updatedWeatherData = response.data.daily.data;
-					this.setState({ weatherData: updatedWeatherData });
-				})
-				.catch((error) => console.log(error));
+			this.fetchWeatherData(url);
 		} else {
 			console.log('STOP THERE');
 		}
+	}
+
+	componentDidMount() {
+		console.log('from [COMPONENTDIDMOUNT]');
+		const url = `/${this.props.location.lat},${
+			this.props.location.lng
+		}?units=auto&exclude=minutely,alerts,flags`;
+
+		this.fetchWeatherData(url);
 	}
 
 	render() {
