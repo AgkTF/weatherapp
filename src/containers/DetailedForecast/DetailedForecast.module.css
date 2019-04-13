@@ -17,3 +17,12 @@
 	font-weight: 500;
 	font-size: 1.3rem;
 }
+
+.ExtraDetails {
+	border: 1px solid black;
+	border-radius: 25px;
+	background: var(--backdrop-color);
+	padding: 20px 0;
+	display: grid;
+	grid-row-gap: 2em;
+}

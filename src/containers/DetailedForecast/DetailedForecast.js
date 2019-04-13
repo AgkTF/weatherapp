@@ -3,7 +3,7 @@ import SingleForecast from '../../components/SingleForecast/SingleForecast';
 import Moment from 'react-moment';
 import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
-// import { ReactComponent as Sunrise } from '../../assets/svgs/climacon-sunrise.svg';
+import ExtraDetail from '../../components/ExtraDetail/ExtraDetail';
 import classes from './DetailedForecast.module.css';
 
 class DetailedForecast extends Component {
@@ -110,38 +110,43 @@ class DetailedForecast extends Component {
 				</>
 			);
 
+			const EXTRA_DETAILS = [
+				{
+					iconClass: 'wi wi-sunrise',
+					item: 'Sunrise',
+					value: this.state.weatherData.daily.data[0].sunriseTime
+				},
+				{
+					iconClass: 'wi wi-sunset',
+					item: 'Sunset',
+					value: this.state.weatherData.daily.data[0].sunsetTime
+				},
+				{
+					iconClass: 'wi wi-humidity',
+					item: 'Humidity',
+					value: this.state.weatherData.daily.data[0].humidity	
+				},
+				{
+					iconClass: 'wi wi-windy',
+					item: 'Wind Speed',
+					value: this.state.weatherData.daily.data[0].windSpeed
+				}
+			];
+
 			extraDetails = (
-				<div
-					style={{
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						padding: '0 20px'
-					}}
-				>
-					<div>
-						<i
-							className="wi wi-sunrise"
-							style={{
-								fontSize: '2.5rem',
-								fontWeight: '200'
-							}}
+				<>
+					{EXTRA_DETAILS.map((singleDetail) => (
+						<ExtraDetail
+							iconClass={singleDetail.iconClass}
+							item={singleDetail.item}
+							value={singleDetail.value}
+							key={singleDetail.item}
 						/>
-						<span
-							style={{ fontSize: '1.75rem', paddingLeft: '10px' }}
-						>
-							{' '}
-							Sunrise
-						</span>
-					</div>
-					<span style={{ fontSize: '1.6rem' }}>
-						<Moment unix format="h:hh a">
-							{this.state.weatherData.daily.data[0].sunriseTime}
-						</Moment>
-					</span>
-				</div>
+					))}
+				</>
 			);
 		}
+
 		return (
 			<div className={classes.Container}>
 				<div className={classes.Title}>Hourly</div>
@@ -151,7 +156,7 @@ class DetailedForecast extends Component {
 				<div className={classes.DetailedForecast}>{dayDetails}</div>
 
 				<div className={classes.Title}>Details</div>
-				<div className={classes.DetailedForecast}>{extraDetails}</div>
+				<div className={classes.ExtraDetails}>{extraDetails}</div>
 			</div>
 		);
 	}
