@@ -3,6 +3,7 @@ import SingleForecast from '../../components/SingleForecast/SingleForecast';
 import Moment from 'react-moment';
 import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
+// import { ReactComponent as Sunrise } from '../../assets/svgs/climacon-sunrise.svg';
 import classes from './DetailedForecast.module.css';
 
 class DetailedForecast extends Component {
@@ -53,10 +54,12 @@ class DetailedForecast extends Component {
 	render() {
 		let hourDetails = null;
 		let dayDetails = null;
+		let extraDetails = null;
 
 		if (!this.state.weatherData) {
 			hourDetails = <Spinner />;
 			dayDetails = <Spinner />;
+			extraDetails = <Spinner />;
 		} else {
 			const copiedState = { ...this.state.weatherData };
 			console.log(copiedState);
@@ -106,6 +109,38 @@ class DetailedForecast extends Component {
 					))}
 				</>
 			);
+
+			extraDetails = (
+				<div
+					style={{
+						display: 'flex',
+						justifyContent: 'space-between',
+						alignItems: 'center',
+						padding: '0 20px'
+					}}
+				>
+					<div>
+						<i
+							className="wi wi-sunrise"
+							style={{
+								fontSize: '2.5rem',
+								fontWeight: '200'
+							}}
+						/>
+						<span
+							style={{ fontSize: '1.75rem', paddingLeft: '10px' }}
+						>
+							{' '}
+							Sunrise
+						</span>
+					</div>
+					<span style={{ fontSize: '1.6rem' }}>
+						<Moment unix format="h:hh a">
+							{this.state.weatherData.daily.data[0].sunriseTime}
+						</Moment>
+					</span>
+				</div>
+			);
 		}
 		return (
 			<div className={classes.Container}>
@@ -114,6 +149,9 @@ class DetailedForecast extends Component {
 
 				<div className={classes.Title}>Daily</div>
 				<div className={classes.DetailedForecast}>{dayDetails}</div>
+
+				<div className={classes.Title}>Details</div>
+				<div className={classes.DetailedForecast}>{extraDetails}</div>
 			</div>
 		);
 	}
