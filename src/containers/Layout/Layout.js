@@ -3,6 +3,7 @@ import MainWeatherInfo from '../MainWeatherInfo/MainWeatherInfo';
 import DetailedForecast from '../DetailedForecast/DetailedForecast';
 import Landing from '../../components/Landing/Landing';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Footer from '../../components/UI/Footer/Footer';
 import axios from 'axios';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
@@ -72,7 +73,7 @@ class Layout extends Component {
 	};
 
 	componentDidMount() {
-		console.log(this.props);
+		console.log('[this.props]', this.props);
 	}
 
 	state = {
@@ -84,13 +85,14 @@ class Layout extends Component {
 	};
 
 	render() {
-		console.log(this.state);
+		console.log('[this.state]', this.state);
 
 		return (
 			<>
 				<Toolbar
 					clicked={this.fetchCurrentLocationHandler}
-					// FIXME: the button doesn't take the user to the weatherinfo page
+					// FIXME: the button doesn't take the user to the weatherinfo page if
+					// they were on Landing
 					selected={this._suggestionSelect}
 					btnIcon={this.state.btnIcon}
 				/>
@@ -113,6 +115,9 @@ class Layout extends Component {
 						<Route path="/" component={Landing} />
 					</Switch>
 				</main>
+				<footer>
+					<Footer />
+				</footer>
 			</>
 		);
 	}
