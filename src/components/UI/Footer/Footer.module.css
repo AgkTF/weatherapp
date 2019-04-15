@@ -1,9 +1,7 @@
 .Footer {
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	height: 70px;
+	position: relative;
+	top: 11vmin;
+	height: auto;
 	margin: 5px 20px;
 	padding: 5px 10px;
 	background-color: rgba(85, 83, 83, 0.658);
@@ -19,12 +17,3 @@ span.Name {
 	font-weight: 600;
 	color: beige;
 }
-
-/* height: 75px;
-	width: 40%;
-	box-sizing: border-box;
-	margin: 0px auto;
-	text-align: center;
-	position: fixed;
-	left: 30%;
-	bottom: 10px; */

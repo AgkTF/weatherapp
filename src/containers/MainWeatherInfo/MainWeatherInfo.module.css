@@ -10,12 +10,9 @@
 	padding-bottom: 10px;
 }
 
-.Header {
-	font-size: 5rem;
-}
-
+.Header,
 .Header i {
-	font-size: 4.5rem;
+	font-size: 5rem;
 }
 
 .Header span {
@@ -39,11 +36,26 @@
 	font-size: 1.25rem;
 }
 
-@media (max-width: 830px) {
+@media (max-width: 750px) {
+	.Header,
+	.Header i {
+		font-size: 2.2rem;
+	}
+
+	.Header span {
+		font-size: 2rem;
+	}
+
 	.LocationSubheader {
-		margin-top: 1.75rem;
-		margin-bottom: 1.75rem;
-		font-size: 1.75rem;
-		line-height: 1.25em;
+		margin-top: 0.875rem;
+		margin-bottom: 0.5rem;
+		font-size: 1rem;
+		line-height: 1.2em;
+	}
+
+	.Subheader1,
+	.Subheader2 {
+		margin-top: 0.2rem;
+		font-size: 0.8rem;
 	}
 }

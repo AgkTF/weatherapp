@@ -1,37 +1,21 @@
 .NavItems {
 	margin: 5px;
-	display: grid;
-	grid-template-columns: 1.75fr minmax(300px, 3fr) 1.5fr;
-	grid-gap: 5px;
-	text-align: center;
-	justify-content: space-between;
-	grid-auto-flow: column;
-}
-
-.ContainerLeft {
-	height: 100%;
-	display: grid;
-	grid-gap: 20px;
-	grid-template-columns: 1fr 0.75fr;
-	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	flex: auto;
+	justify-content: space-around;
 	align-items: center;
-	justify-self: left;
-}
-
-.ContainerRight {
-	height: 100%;
-	display: grid;
-	grid-gap: 20px;
-	grid-template-columns: 0.75fr 0.75fr;
 	text-align: center;
-	align-items: center;
-	justify-self: right;
 }
 
 .Title {
 	box-sizing: border-box;
-	display: block;
-	width: 100%;
+	display: inline;
 	font-family: 'Berkshire Swash';
 	font-size: 1.7rem;
+	flex-grow: 0;
+}
+
+.Controls {
+	flex-grow: 2;
 }

@@ -18,7 +18,9 @@ html {
 
 body {
 	position: relative;
-	margin: 0;
+	width: 100% !important;
+	max-width: 750px !important;
+	margin: auto auto !important;
 	min-height: 100%;
 	background-color: var(--main-color) !important;
 	z-index: 0;

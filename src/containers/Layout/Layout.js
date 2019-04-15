@@ -6,6 +6,7 @@ import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Footer from '../../components/UI/Footer/Footer';
 import axios from 'axios';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import classes from './Layout.module.css';
 
 class Layout extends Component {
 	_suggestionSelect = (result, lat, lng, text) => {
@@ -96,7 +97,7 @@ class Layout extends Component {
 					selected={this._suggestionSelect}
 					btnIcon={this.state.btnIcon}
 				/>
-				<main>
+				<main className={classes.MainArea}>
 					<Switch>
 						<Route
 							path="/forecast/:city"

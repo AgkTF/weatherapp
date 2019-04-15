@@ -6,21 +6,15 @@ import classes from './NavItems.module.css';
 const navItems = (props) => {
 	return (
 		<div className={classes.NavItems}>
-			<div className={classes.ContainerLeft}>
-				<div className={classes.Title}>WeatherApp</div>
-				<NavItem link="/">Home</NavItem>
+			<div className={classes.Title}>
+				<NavItem link="/">WeatherApp</NavItem>
 			</div>
-			<div className={classes.Controls}>
-				<Controls
-					clicked={props.clicked}
-					selected={props.selected}
-					btnIcon={props.btnIcon}
-				/>
-			</div>
-			<div className={classes.ContainerRight}>
-				<NavItem link="/signin">Signin</NavItem>
-				<NavItem link="/signup">Signup</NavItem>
-			</div>
+			<Controls
+				clicked={props.clicked}
+				selected={props.selected}
+				btnIcon={props.btnIcon}
+				className={classes.Controls}
+			/>
 		</div>
 	);
 };
