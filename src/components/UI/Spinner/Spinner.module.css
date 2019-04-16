@@ -9,6 +9,7 @@
 	padding: 2px;
 	overflow: hidden;
 	position: relative;
+	margin: auto auto;
 }
 
 .fingerprintSpinner .spinnerRing {

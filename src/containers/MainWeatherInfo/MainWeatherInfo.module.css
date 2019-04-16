@@ -36,26 +36,26 @@
 	font-size: 1.25rem;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 60rem) {
 	.Header,
 	.Header i {
-		font-size: 2.2rem;
+		font-size: 2.4rem;
 	}
 
 	.Header span {
-		font-size: 2rem;
+		font-size: 2.1rem;
 	}
 
 	.LocationSubheader {
-		margin-top: 0.875rem;
-		margin-bottom: 0.5rem;
 		font-size: 1rem;
+		margin-top: 0.875em;
+		margin-bottom: 0.5em;
 		line-height: 1.2em;
 	}
 
 	.Subheader1,
 	.Subheader2 {
-		margin-top: 0.2rem;
-		font-size: 0.8rem;
+		font-size: 0.9rem;
+		margin-top: 0.3em;
 	}
 }
