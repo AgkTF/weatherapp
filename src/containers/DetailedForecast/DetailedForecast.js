@@ -1,70 +1,26 @@
 import React, { Component } from 'react';
 import SingleForecast from '../../components/SingleForecast/SingleForecast';
 import Moment from 'react-moment';
-import axios from 'axios';
+// import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import ExtraDetail from '../../components/ExtraDetail/ExtraDetail';
 import classes from './DetailedForecast.module.css';
 
 class DetailedForecast extends Component {
-	state = {
-		weatherData: null
-	};
-
-	fetchWeatherData = (url) => {
-		axios
-			.get(url)
-			.then((response) => {
-				console.log(response);
-				const updatedWeatherData = response.data;
-
-				this.setState({
-					weatherData: updatedWeatherData
-				});
-			})
-			.catch((error) => console.log(error));
-	};
-
-	componentDidUpdate(prevProps, prevState) {
-		if (
-			!prevState.weatherData ||
-			(prevProps.location.lat !== this.props.location.lat &&
-				prevProps.location.lng !== this.props.location.lng &&
-				prevProps.location.city !== this.props.location.city)
-		) {
-			const url = `/${this.props.location.lat},${
-				this.props.location.lng
-			}?units=auto&exclude=minutely,alerts,flags`;
-
-			this.fetchWeatherData(url);
-		} else {
-			console.log('STOP THERE');
-		}
-	}
-
-	componentDidMount() {
-		console.log('from [COMPONENTDIDMOUNT]');
-		const url = `/${this.props.location.lat},${
-			this.props.location.lng
-		}?units=auto&exclude=minutely,alerts,flags`;
-
-		this.fetchWeatherData(url);
-	}
-
 	render() {
 		let hourDetails = null;
 		let dayDetails = null;
 		let extraDetails = null;
 
-		if (!this.state.weatherData) {
+		if (!this.props.weatherData) {
 			hourDetails = <Spinner />;
 			dayDetails = <Spinner />;
 			extraDetails = <Spinner />;
 		} else {
-			const copiedState = { ...this.state.weatherData };
-			console.log(copiedState);
+			const copiedWeatherDataProp = { ...this.props.weatherData };
+			console.log(copiedWeatherDataProp);
 
-			const hourlyWeatherData = copiedState.hourly.data.filter(
+			const hourlyWeatherData = copiedWeatherDataProp.hourly.data.filter(
 				(hourlySummary, i) => i % 3 === 0 && i <= 24 && i > 0
 			);
 			hourDetails = (
@@ -89,7 +45,7 @@ class DetailedForecast extends Component {
 
 			dayDetails = (
 				<>
-					{this.state.weatherData.daily.data.map((dayDetails) => (
+					{this.props.weatherData.daily.data.map((dayDetails) => (
 						<SingleForecast
 							time={
 								<Moment unix format="dddd">
@@ -114,22 +70,22 @@ class DetailedForecast extends Component {
 				{
 					iconClass: 'wi wi-sunrise',
 					item: 'Sunrise',
-					value: this.state.weatherData.daily.data[0].sunriseTime
+					value: this.props.weatherData.daily.data[0].sunriseTime
 				},
 				{
 					iconClass: 'wi wi-sunset',
 					item: 'Sunset',
-					value: this.state.weatherData.daily.data[0].sunsetTime
+					value: this.props.weatherData.daily.data[0].sunsetTime
 				},
 				{
 					iconClass: 'wi wi-humidity',
 					item: 'Humidity',
-					value: this.state.weatherData.daily.data[0].humidity	
+					value: this.props.weatherData.daily.data[0].humidity
 				},
 				{
 					iconClass: 'wi wi-windy',
 					item: 'Wind Speed',
-					value: this.state.weatherData.daily.data[0].windSpeed
+					value: this.props.weatherData.daily.data[0].windSpeed
 				}
 			];
 
@@ -149,10 +105,14 @@ class DetailedForecast extends Component {
 
 		return (
 			<div className={classes.Container}>
-				<div className={classes.Title}>Hourly</div>
+				<div className={classes.Title}>
+					Hourly Summary: {this.props.weatherData.hourly.summary}
+				</div>
 				<div className={classes.DetailedForecast}>{hourDetails}</div>
 
-				<div className={classes.Title}>Daily</div>
+				<div className={classes.Title}>
+					Daily Summary: {this.props.weatherData.daily.summary}
+				</div>
 				<div className={classes.DetailedForecast}>{dayDetails}</div>
 
 				<div className={classes.Title}>Details</div>

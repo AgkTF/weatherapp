@@ -9,27 +9,6 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import classes from './Layout.module.css';
 
 class Layout extends Component {
-	_suggestionSelect = (result, lat, lng, text) => {
-		console.log(result, lat, lng, text);
-
-		// update the location object immutably
-		const updatedLocation = { ...this.state.location };
-		updatedLocation.city = result;
-		updatedLocation.lat = lat;
-		updatedLocation.lng = lng;
-
-		this.setState(
-			{
-				location: updatedLocation
-			},
-			() => {
-				this.props.history.push(
-					`/forecast/${this.state.location.city}`
-				);
-			}
-		);
-	};
-
 	fetchCurrentLocationHandler = () => {
 		const reverseGeocoding = (lng, lat) => {
 			const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${
@@ -73,16 +52,63 @@ class Layout extends Component {
 		}
 	};
 
+	_suggestionSelect = (result, lat, lng, text) => {
+		console.log(result, lat, lng, text);
+
+		// update the location object immutably
+		const updatedLocation = { ...this.state.location };
+		updatedLocation.city = result;
+		updatedLocation.lat = lat;
+		updatedLocation.lng = lng;
+
+		this.setState({ location: updatedLocation });
+	};
+
+	fetchWeatherData = (url) => {
+		axios
+			.get(url)
+			.then((response) => {
+				console.log('[from fetchWeatherData]', response);
+				const updatedWeatherData = response.data;
+
+				this.setState({
+					weatherData: updatedWeatherData,
+					loading: false
+				});
+				this.props.history.push(
+					`/forecast/${this.state.location.city}`
+				);
+			})
+			.catch((error) => console.log(error));
+	};
+
 	componentDidMount() {
 		console.log('[this.props]', this.props);
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		if (
+			prevState.location.lat !== this.state.location.lat &&
+			prevState.location.lng !== this.state.location.lng &&
+			prevState.location.city !== this.state.location.city
+		) {
+			const url = `/${this.state.location.lat},${
+				this.state.location.lng
+			}?units=${this.state.units}&exclude=minutely,alerts,flags`;
+
+			this.fetchWeatherData(url);
+		} else {
+			console.log('STOP THERE');
+		}
+	}
+
 	state = {
-		location: { city: 'Cairo, Egypt', lat: 30.06263, lng: 31.24967 },
-		units: 'metric',
+		// location: { city: 'Cairo, Egypt', lat: 30.06263, lng: 31.24967 },
+		location: {},
+		weatherData: {},
+		units: 'auto',
 		btnIcon: 'location arrow',
-		fetchCurrentLocationHandler: this.fetchCurrentLocationHandler,
-		_suggestionSelect: this._suggestionSelect
+		loading: true
 	};
 
 	render() {
@@ -105,10 +131,23 @@ class Layout extends Component {
 								<>
 									<MainWeatherInfo
 										where={this.state.location}
-										units={this.state.units}
+										weatherIcon={
+											this.state.weatherData.currently
+												.icon
+										}
+										weatherSummary={
+											this.state.weatherData.currently
+												.summary
+										}
+										temp={
+											this.state.weatherData.currently
+												.temperature
+										}
+										loading={this.state.loading}
 									/>
 									<DetailedForecast
 										location={this.state.location}
+										weatherData={this.state.weatherData}
 									/>
 								</>
 							)}
