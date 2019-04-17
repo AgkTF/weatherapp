@@ -7,14 +7,14 @@ const extraDetails = (props) => {
 	let item = props.item;
 	switch (item) {
 		case 'Humidity':
-			valueProp = `${props.value * 100}%`;
+			valueProp = `${(props.value * 100).toFixed(0)}%`;
 			break;
 		case 'Wind Speed':
 			valueProp = `${props.value} m/s`;
 			break;
 		default:
 			valueProp = (
-				<Moment unix format="h:hh a">
+				<Moment unix tz={props.timeZone} format="h:hh a">
 					{props.value}
 				</Moment>
 			);

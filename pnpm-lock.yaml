@@ -7,6 +7,7 @@ dependencies:
   axios: 0.18.0
   dotenv: 7.0.0
   moment: 2.24.0
+  moment-timezone: 0.5.23
   prop-types: 15.7.2
   react: 16.8.4
   react-dom: 16.8.4
@@ -7432,6 +7433,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+  /moment-timezone/0.5.23:
+    dependencies:
+      moment: 2.24.0
+    dev: false
+    resolution:
+      integrity: sha512-WHFH85DkCfiNMDX5D3X7hpNH3/PUhjTGcD0U1SgfBGZxJ3qUmJh5FdvaFjcClxOvB3rzdfj4oRffbI38jEnC1w==
   /moment/2.24.0:
     dev: false
     resolution:
@@ -11717,6 +11724,7 @@ specifiers:
   axios: ^0.18.0
   dotenv: ^7.0.0
   moment: ^2.24.0
+  moment-timezone: ^0.5.23
   prop-types: ^15.7.2
   react: 16.8.4
   react-dom: 16.8.4

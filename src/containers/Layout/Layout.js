@@ -73,18 +73,17 @@ class Layout extends Component {
 
 				this.setState({
 					weatherData: updatedWeatherData,
-					loading: false
+					loading: false,
 				});
 				this.props.history.push(
 					`/forecast/${this.state.location.city}`
 				);
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => {
+				this.setState({ loading: false });
+				console.log(error);
+			});
 	};
-
-	componentDidMount() {
-		console.log('[this.props]', this.props);
-	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (
@@ -103,7 +102,6 @@ class Layout extends Component {
 	}
 
 	state = {
-		// location: { city: 'Cairo, Egypt', lat: 30.06263, lng: 31.24967 },
 		location: {},
 		weatherData: {},
 		units: 'auto',
@@ -132,22 +130,36 @@ class Layout extends Component {
 									<MainWeatherInfo
 										where={this.state.location}
 										weatherIcon={
-											this.state.weatherData.currently
-												.icon
+											this.state.weatherData
+												.currently.icon
 										}
 										weatherSummary={
-											this.state.weatherData.currently
-												.summary
+											this.state.weatherData
+												.currently.summary
 										}
 										temp={
-											this.state.weatherData.currently
-												.temperature
+											this.state.weatherData
+												.currently.temperature
 										}
 										loading={this.state.loading}
+										time={
+											this.state.weatherData
+												.currently.time
+										}
+										timeZone={
+											this.state.weatherData
+												.timezone
+										}
 									/>
 									<DetailedForecast
 										location={this.state.location}
-										weatherData={this.state.weatherData}
+										weatherData={
+											this.state.weatherData
+										}
+										timeZone={
+											this.state.weatherData
+												.timezone
+										}
 									/>
 								</>
 							)}

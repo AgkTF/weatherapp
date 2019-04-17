@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SingleForecast from '../../components/SingleForecast/SingleForecast';
 import Moment from 'react-moment';
-// import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import ExtraDetail from '../../components/ExtraDetail/ExtraDetail';
 import classes from './DetailedForecast.module.css';
@@ -28,7 +27,11 @@ class DetailedForecast extends Component {
 					{hourlyWeatherData.map((hourDetails) => (
 						<SingleForecast
 							time={
-								<Moment unix format="h a">
+								<Moment
+									unix
+									tz={this.props.timeZone}
+									format="h a"
+								>
 									{hourDetails.time}
 								</Moment>
 							}
@@ -48,7 +51,11 @@ class DetailedForecast extends Component {
 					{this.props.weatherData.daily.data.map((dayDetails) => (
 						<SingleForecast
 							time={
-								<Moment unix format="dddd">
+								<Moment
+									unix
+									tz={this.props.timeZone}
+									format="dddd"
+								>
 									{dayDetails.time}
 								</Moment>
 							}
@@ -97,6 +104,7 @@ class DetailedForecast extends Component {
 							item={singleDetail.item}
 							value={singleDetail.value}
 							key={singleDetail.item}
+							timeZone={this.props.timeZone}
 						/>
 					))}
 				</>
