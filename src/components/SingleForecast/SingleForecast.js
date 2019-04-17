@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../assets/weather-icons/css/weather-icons.min.css';
 import classes from './SingleForecast.module.css';
 
 const singleForecast = (props) => {
