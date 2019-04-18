@@ -5,7 +5,7 @@ import Landing from '../../components/Landing/Landing';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Footer from '../../components/UI/Footer/Footer';
 import axios from 'axios';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import classes from './Layout.module.css';
 
 class Layout extends Component {
@@ -85,6 +85,10 @@ class Layout extends Component {
 			});
 	};
 
+	componentDidMount() {
+		console.log('FROM componentDidMount');
+	}
+
 	componentDidUpdate(prevProps, prevState) {
 		if (
 			prevState.location.lat !== this.state.location.lat &&
@@ -124,6 +128,7 @@ class Layout extends Component {
 				/>
 				<main className={classes.MainArea}>
 					<Switch>
+						{/* <Redirect from="/forecast/*" to="/" /> */}
 						<Route
 							path="/forecast/:city"
 							render={(props) => (

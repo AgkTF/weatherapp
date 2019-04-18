@@ -14,7 +14,7 @@ const extraDetails = (props) => {
 			break;
 		default:
 			valueProp = (
-				<Moment unix tz={props.timeZone} format="h:hh a">
+				<Moment unix tz={props.timeZone} format="HH:mm">
 					{props.value}
 				</Moment>
 			);
