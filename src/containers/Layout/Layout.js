@@ -5,7 +5,8 @@ import Landing from '../../components/Landing/Landing';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Footer from '../../components/UI/Footer/Footer';
 import axios from 'axios';
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import ErrorBoundary from '../../HOC/ErrorBoundary/ErrorBoundary';
 import classes from './Layout.module.css';
 
 class Layout extends Component {
@@ -126,49 +127,50 @@ class Layout extends Component {
 					selected={this._suggestionSelect}
 					btnIcon={this.state.btnIcon}
 				/>
-				<main className={classes.MainArea}>
-					<Switch>
-						{/* <Redirect from="/forecast/*" to="/" /> */}
-						<Route
-							path="/forecast/:city"
-							render={(props) => (
-								<>
-									<MainWeatherInfo
-										where={this.state.location}
-										weatherIcon={
-											this.state.weatherData.currently
-												.icon
-										}
-										weatherSummary={
-											this.state.weatherData.currently
-												.summary
-										}
-										temp={
-											this.state.weatherData.currently
-												.temperature
-										}
-										loading={this.state.loading}
-										time={
-											this.state.weatherData.currently
-												.time
-										}
-										timeZone={
-											this.state.weatherData.timezone
-										}
-									/>
-									<DetailedForecast
-										location={this.state.location}
-										weatherData={this.state.weatherData}
-										timeZone={
-											this.state.weatherData.timezone
-										}
-									/>
-								</>
-							)}
-						/>
-						<Route path="/" component={Landing} />
-					</Switch>
-				</main>
+				<ErrorBoundary {...this.props}>
+					<main className={classes.MainArea}>
+						<Switch>
+							<Route
+								path="/forecast/:city"
+								render={(props) => (
+									<>
+										<MainWeatherInfo
+											where={this.state.location}
+											weatherIcon={
+												this.state.weatherData.currently
+													.icon
+											}
+											weatherSummary={
+												this.state.weatherData.currently
+													.summary
+											}
+											temp={
+												this.state.weatherData.currently
+													.temperature
+											}
+											loading={this.state.loading}
+											time={
+												this.state.weatherData.currently
+													.time
+											}
+											timeZone={
+												this.state.weatherData.timezone
+											}
+										/>
+										<DetailedForecast
+											location={this.state.location}
+											weatherData={this.state.weatherData}
+											timeZone={
+												this.state.weatherData.timezone
+											}
+										/>
+									</>
+								)}
+							/>
+							<Route path="/" component={Landing} />
+						</Switch>
+					</main>
+				</ErrorBoundary>
 				<footer>
 					<Footer />
 				</footer>
