@@ -4,6 +4,12 @@ import Controls from '../../Controls/Controls';
 import classes from './NavItems.module.css';
 
 const navItems = (props) => {
+	const units = [
+		{ key: 'select', text: 'Select units', value: 'Select units' },
+		{ key: 'C', text: 'C, m/s', value: 'si' },
+		{ key: 'F', text: 'F, mph', value: 'us' }
+	];
+
 	return (
 		<div className={classes.NavItems}>
 			<div className={classes.Title}>
@@ -15,6 +21,13 @@ const navItems = (props) => {
 				btnIcon={props.btnIcon}
 				className={classes.Controls}
 			/>
+			<select value={props.value} onChange={props.changed}>
+				{units.map((unit) => (
+					<option key={unit.key} value={unit.value}>
+						{unit.text}
+					</option>
+				))}
+			</select>
 		</div>
 	);
 };

@@ -11,6 +11,8 @@ const toolbar = (props) => {
 					clicked={props.clicked}
 					selected={props.selected}
 					btnIcon={props.btnIcon}
+					value={props.value}
+					changed={props.changed}
 				/>
 			</nav>
 		</header>

@@ -96,6 +96,7 @@ const detailedForecast = (props) => {
 						value={singleDetail.value}
 						key={singleDetail.item}
 						timeZone={props.timeZone}
+						selectedUnit={props.selectedUnit}
 					/>
 				))}
 			</>

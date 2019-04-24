@@ -10,7 +10,9 @@ const extraDetails = (props) => {
 			valueProp = `${(props.value * 100).toFixed(0)}%`;
 			break;
 		case 'Wind Speed':
-			valueProp = `${props.value} m/s`;
+			valueProp = `${props.value} ${
+				props.selectedUnit === 'si' ? 'm/s' : 'mph'
+			}`;
 			break;
 		default:
 			valueProp = (

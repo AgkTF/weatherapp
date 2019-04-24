@@ -16,7 +16,8 @@ const mainWeatherInfo = (props) => {
 			<div className={classes.Header}>
 				<i className={`wi wi-forecast-io-${props.weatherIcon}`} />
 				{'  '}
-				{`${Math.floor(props.temp)}`}°<span>C</span>
+				{`${Math.floor(props.temp)}`}°
+				<span>{props.selectedUnit === 'si' ? 'C' : 'F'}</span>
 			</div>
 			<div className={classes.LocationSubheader}>{props.where.city}</div>
 

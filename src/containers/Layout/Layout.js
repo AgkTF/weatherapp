@@ -86,19 +86,25 @@ class Layout extends Component {
 			});
 	};
 
+	onOptionChangeHandler = (event) => {
+		this.setState({ selectedUnit: event.target.value });
+		console.log(event.target.value);
+	};
+
 	componentDidMount() {
 		console.log('FROM componentDidMount');
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (
-			prevState.location.lat !== this.state.location.lat &&
-			prevState.location.lng !== this.state.location.lng &&
-			prevState.location.city !== this.state.location.city
+			(prevState.location.lat !== this.state.location.lat &&
+				prevState.location.lng !== this.state.location.lng &&
+				prevState.location.city !== this.state.location.city) ||
+			prevState.selectedUnit !== this.state.selectedUnit
 		) {
 			const url = `/${this.state.location.lat},${
 				this.state.location.lng
-			}?units=${this.state.units}&exclude=minutely,alerts,flags`;
+			}?units=${this.state.selectedUnit}&exclude=minutely,alerts,flags`;
 
 			this.fetchWeatherData(url);
 		} else {
@@ -107,10 +113,9 @@ class Layout extends Component {
 	}
 
 	state = {
-		// FIXME: Do i need a fallback location??
 		location: {},
 		weatherData: {},
-		units: 'auto',
+		selectedUnit: 'Select units',
 		btnIcon: 'location arrow',
 		loading: true
 	};
@@ -126,6 +131,8 @@ class Layout extends Component {
 					// they were on Landing
 					selected={this._suggestionSelect}
 					btnIcon={this.state.btnIcon}
+					changed={this.onOptionChangeHandler}
+					value={this.state.selectedUnit}
 				/>
 				<ErrorBoundary {...this.props}>
 					<main className={classes.MainArea}>
@@ -156,12 +163,18 @@ class Layout extends Component {
 											timeZone={
 												this.state.weatherData.timezone
 											}
+											selectedUnit={
+												this.state.selectedUnit
+											}
 										/>
 										<DetailedForecast
 											location={this.state.location}
 											weatherData={this.state.weatherData}
 											timeZone={
 												this.state.weatherData.timezone
+											}
+											selectedUnit={
+												this.state.selectedUnit
 											}
 										/>
 									</>

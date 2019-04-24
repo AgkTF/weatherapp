@@ -21,6 +21,8 @@ class ErrorBoundary extends Component {
 		if (this.state.hasError) {
 			return (
 				<>
+					{/* FIXME: we need to use a Modal. It's better. becasue the toolbar isn't working so why give the user something that doesn't work  */}
+					{/* TODO: create a central container to control the toolbar and make the layout only presentational */}
 					<Error />
 					<h3 style={{ textAlign: 'center' }}>
 						Just click

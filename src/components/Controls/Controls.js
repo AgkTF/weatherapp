@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Button, Icon, Select, Dropdown } from 'semantic-ui-react';
 import { Button, Icon } from 'semantic-ui-react';
 import MapboxAutocomplete from 'react-mapbox-autocomplete';
 import classes from './Controls.module.css';
@@ -8,7 +9,7 @@ const controls = (props) => {
 		<div className={classes.Controls}>
 			<div>
 				<Button icon onClick={props.clicked}>
-					<Icon name={props.btnIcon} />
+					<Icon name={props.btnIcon} color="black" />
 				</Button>
 			</div>
 			<div style={{ width: '100%', textAlign: 'left' }}>
