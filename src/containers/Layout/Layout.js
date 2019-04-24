@@ -26,8 +26,18 @@ class Layout extends Component {
 					currentLocation.lng = lng;
 					this.setState({
 						location: currentLocation,
-						btnIcon: 'check'
+						btnIcon: 'check',
+						selectedUnit: 'si',
+						loading: false
 					});
+
+					const url = `/${this.state.location.lat},${
+						this.state.location.lng
+					}?units=${
+						this.state.selectedUnit
+					}&exclude=minutely,alerts,flags`;
+
+					this.fetchWeatherData(url);
 				})
 				.catch((error) => console.log(error));
 		};
@@ -127,8 +137,6 @@ class Layout extends Component {
 			<>
 				<Toolbar
 					clicked={this.fetchCurrentLocationHandler}
-					// FIXME: the button doesn't take the user to the weatherinfo page if
-					// they were on Landing
 					selected={this._suggestionSelect}
 					btnIcon={this.state.btnIcon}
 					changed={this.onOptionChangeHandler}
