@@ -19,12 +19,20 @@ const footer = () => {
 
 				<span>
 					<a href="https://github.com/AgkTF">
-						<Icon name="github square" size="big" />
+						<Icon
+							name="github square"
+							size="big"
+							className={classes.Icon}
+						/>
 					</a>
 				</span>
 				<span>
 					<a href="https://twitter.com/agkTF">
-						<Icon name="twitter square" size="big" />
+						<Icon
+							name="twitter square"
+							size="big"
+							className={classes.Icon}
+						/>
 					</a>
 				</span>
 			</div>

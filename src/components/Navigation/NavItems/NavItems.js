@@ -1,11 +1,11 @@
 import React from 'react';
 import NavItem from './NavItem/NavItem';
 import Controls from '../../Controls/Controls';
+import { Dropdown, Menu } from 'semantic-ui-react';
 import classes from './NavItems.module.css';
 
 const navItems = (props) => {
 	const units = [
-		{ key: 'select', text: 'Select units', value: 'Select units' },
 		{ key: 'C', text: 'C, m/s', value: 'si' },
 		{ key: 'F', text: 'F, mph', value: 'us' }
 	];
@@ -21,13 +21,15 @@ const navItems = (props) => {
 				btnIcon={props.btnIcon}
 				className={classes.Controls}
 			/>
-			<select value={props.value} onChange={props.changed}>
-				{units.map((unit) => (
-					<option key={unit.key} value={unit.value}>
-						{unit.text}
-					</option>
-				))}
-			</select>
+			<Menu compact>
+				<Dropdown
+					placeholder="Select units"
+					selection
+					compact
+					options={units}
+					onChange={props.changed}
+				/>
+			</Menu>
 		</div>
 	);
 };

@@ -86,9 +86,9 @@ class Layout extends Component {
 			});
 	};
 
-	onOptionChangeHandler = (event) => {
-		this.setState({ selectedUnit: event.target.value });
-		console.log(event.target.value);
+	onOptionChangeHandler = (event, data) => {
+		this.setState({ selectedUnit: data.value });
+		console.log(data.value);
 	};
 
 	componentDidMount() {

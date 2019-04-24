@@ -6,7 +6,7 @@
 	--backdrop-color: #302f2f;
 	--secondary-color: #ffdd42;
 	--text-color: #ffffff;
-	color: var(--text-color);
+	/* color: var(--text-color); */
 }
 
 html {

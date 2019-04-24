@@ -11,9 +11,14 @@
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
+	color: white;
 }
 
 span.Name {
 	font-weight: 600;
 	color: beige;
+}
+
+.Icon {
+	color: aliceblue;
 }
