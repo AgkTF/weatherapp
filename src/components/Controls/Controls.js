@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Button, Icon, Select, Dropdown } from 'semantic-ui-react';
 import { Button, Icon } from 'semantic-ui-react';
 import MapboxAutocomplete from 'react-mapbox-autocomplete';
 import classes from './Controls.module.css';

@@ -125,7 +125,7 @@ class Layout extends Component {
 	state = {
 		location: {},
 		weatherData: {},
-		selectedUnit: 'Select units',
+		selectedUnit: 'si',
 		btnIcon: 'location arrow',
 		loading: true
 	};

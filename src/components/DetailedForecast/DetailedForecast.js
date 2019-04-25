@@ -106,12 +106,18 @@ const detailedForecast = (props) => {
 	return (
 		<div className={classes.Container}>
 			<div className={classes.Title}>
-				Hourly Summary: {props.weatherData.hourly.summary}
+				<strong>Hourly Summary: </strong>{' '}
+				<span style={{ fontSize: '1.1rem', paddingLeft: '0.5em' }}>
+					{props.weatherData.hourly.summary}
+				</span>
 			</div>
 			<div className={classes.DetailedForecast}>{hourDetails}</div>
 
 			<div className={classes.Title}>
-				Daily Summary: {props.weatherData.daily.summary}
+				<strong>Daily Summary: </strong>{' '}
+				<span style={{ fontSize: '1.1rem', paddingLeft: '0.5em' }}>
+					{props.weatherData.daily.summary}
+				</span>
 			</div>
 			<div className={classes.DetailedForecast}>{dayDetails}</div>
 
