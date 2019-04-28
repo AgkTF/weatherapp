@@ -41,7 +41,10 @@ const withErrorHandler = (WrappedComponent, axios) => {
 						<Modal.Content>
 							<h4>
 								{this.state.error
-									? 'Please check your internet connection and reload the page.'
+									? this.state.error.message ===
+									  'Request failed with status code 400'
+										? 'Please make sure to select a location first'
+										: 'Please check your internet connection and reload the page.'
 									: null}
 							</h4>
 						</Modal.Content>

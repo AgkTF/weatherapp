@@ -79,7 +79,6 @@ class Layout extends Component {
 		axios
 			.get(url)
 			.then((response) => {
-				console.log('[from fetchWeatherData]', response);
 				const updatedWeatherData = response.data;
 
 				this.setState({
@@ -90,18 +89,13 @@ class Layout extends Component {
 				);
 			})
 			.catch((error) => {
-				console.log(error);
+				// console.log(error);
 			});
 	};
 
 	onOptionChangeHandler = (event, data) => {
 		this.setState({ selectedUnit: data.value });
-		console.log(data.value);
 	};
-
-	componentDidMount() {
-		console.log('FROM componentDidMount');
-	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (
@@ -116,7 +110,7 @@ class Layout extends Component {
 
 			this.fetchWeatherData(url);
 		} else {
-			console.log('STOP THERE');
+			// console.log('STOP THERE');
 		}
 	}
 
@@ -128,8 +122,6 @@ class Layout extends Component {
 	};
 
 	render() {
-		console.log('[this.state]', this.state);
-
 		return (
 			<>
 				<Toolbar

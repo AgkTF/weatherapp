@@ -16,7 +16,6 @@ const detailedForecast = (props) => {
 		extraDetails = <Spinner />;
 	} else {
 		const copiedWeatherDataProp = { ...props.weatherData };
-		console.log(copiedWeatherDataProp);
 
 		const hourlyWeatherData = copiedWeatherDataProp.hourly.data.filter(
 			(hourlySummary, i) => i % 3 === 0 && i <= 24 && i > 0

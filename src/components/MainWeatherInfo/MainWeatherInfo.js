@@ -5,10 +5,6 @@ import Spinner from '../UI/Spinner/Spinner';
 import classes from './MainWeatherInfo.module.css';
 
 const mainWeatherInfo = (props) => {
-	const timeToFormat = moment.tz(props.time * 1000, props.timeZone).format();
-
-	console.log(props.time, props.timeZone, timeToFormat);
-
 	let mainWeather = props.loading ? (
 		<Spinner />
 	) : (
