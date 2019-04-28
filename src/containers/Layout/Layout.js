@@ -28,8 +28,7 @@ class Layout extends Component {
 					this.setState({
 						location: currentLocation,
 						btnIcon: 'check',
-						selectedUnit: 'si',
-						loading: false
+						selectedUnit: 'si'
 					});
 
 					const url = `/${this.state.location.lat},${
@@ -65,7 +64,7 @@ class Layout extends Component {
 	};
 
 	_suggestionSelect = (result, lat, lng, text) => {
-		console.log(result, lat, lng, text);
+		// console.log(result, lat, lng, text);
 
 		// update the location object immutably
 		const updatedLocation = { ...this.state.location };
@@ -84,15 +83,13 @@ class Layout extends Component {
 				const updatedWeatherData = response.data;
 
 				this.setState({
-					weatherData: updatedWeatherData,
-					loading: false
+					weatherData: updatedWeatherData
 				});
 				this.props.history.push(
 					`/forecast/${this.state.location.city}`
 				);
 			})
 			.catch((error) => {
-				this.setState({ loading: false });
 				console.log(error);
 			});
 	};
@@ -127,8 +124,7 @@ class Layout extends Component {
 		location: {},
 		weatherData: {},
 		selectedUnit: 'si',
-		btnIcon: 'location arrow',
-		loading: true
+		btnIcon: 'location arrow'
 	};
 
 	render() {
@@ -164,7 +160,6 @@ class Layout extends Component {
 												this.state.weatherData.currently
 													.temperature
 											}
-											loading={this.state.loading}
 											time={
 												this.state.weatherData.currently
 													.time
