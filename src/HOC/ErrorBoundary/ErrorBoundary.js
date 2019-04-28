@@ -10,10 +10,6 @@ class ErrorBoundary extends Component {
 		this.setState({ hasError: true });
 	}
 
-	componentDidMount() {
-		console.log(this.props);
-	}
-
 	resetErrorHandler = () => {
 		this.setState({ hasError: false });
 	};

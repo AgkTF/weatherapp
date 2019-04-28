@@ -35,6 +35,15 @@ const footer = () => {
 						/>
 					</a>
 				</span>
+				<span>
+					<a href="mailto:ahmed.agk22@gmail.com">
+						<Icon
+							name="mail square"
+							size="big"
+							className={classes.Icon}
+						/>
+					</a>
+				</span>
 			</div>
 			<div className={classes.Item}>
 				<p>

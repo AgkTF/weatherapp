@@ -7,6 +7,7 @@ import Footer from '../../components/UI/Footer/Footer';
 import axios from 'axios';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import ErrorBoundary from '../../HOC/ErrorBoundary/ErrorBoundary';
+import withErrorHandler from '../../HOC/withErrorHandler/withErrorHandler';
 import classes from './Layout.module.css';
 
 class Layout extends Component {
@@ -200,4 +201,4 @@ class Layout extends Component {
 	}
 }
 
-export default withRouter(Layout);
+export default withErrorHandler(withRouter(Layout), axios);
