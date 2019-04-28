@@ -28,7 +28,7 @@
 	"eslintConfig": {
 		"extends": "react-app"
 	},
-	"proxy": "https://api.darksky.net/forecast/92a65a87f7387c6a209f7adf195e7b06",
+	"proxy": "https://api.darksky.net/forecast/addYourSecretKey",
 	"browserslist": [
 		">0.2%",
 		"not dead",
