@@ -31,7 +31,7 @@ class Layout extends Component {
 						selectedUnit: 'si'
 					});
 
-					const url = `/${this.state.location.lat},${
+					const url = `/api/${this.state.location.lat},${
 						this.state.location.lng
 					}?units=${
 						this.state.selectedUnit
@@ -104,7 +104,7 @@ class Layout extends Component {
 				prevState.location.city !== this.state.location.city) ||
 			prevState.selectedUnit !== this.state.selectedUnit
 		) {
-			const url = `/${this.state.location.lat},${
+			const url = `/api/${this.state.location.lat},${
 				this.state.location.lng
 			}?units=${this.state.selectedUnit}&exclude=minutely,alerts,flags`;
 

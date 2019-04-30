@@ -1,3 +1,6 @@
 node_modules
 delete
 .env
+build
+.netlify
+public/_redirects

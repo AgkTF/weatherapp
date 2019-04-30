@@ -1,11 +1,10 @@
 dependencies:
-  '@fortawesome/fontawesome-svg-core': 1.2.17
-  '@fortawesome/free-solid-svg-icons': 5.8.1
-  '@fortawesome/react-fontawesome': 0.1.4
   '@mapbox/react-geocoder': 2.5.0
   '@svgr/webpack': 4.1.0
   axios: 0.18.0
+  cors: 2.8.5
   dotenv: 7.0.0
+  http-proxy-middleware: 0.19.1
   moment: 2.24.0
   moment-timezone: 0.5.23
   prop-types: 15.7.2
@@ -1433,38 +1432,6 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
-  /@fortawesome/fontawesome-common-types/0.2.17:
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-DEYsEb/iiGVoMPQGjhG2uOylLVuMzTxOxysClkabZ5n80Q3oFDWGnshCLKvOvKoeClsgmKhWVrnnqvsMI1cAbw==
-  /@fortawesome/fontawesome-svg-core/1.2.17:
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.2.17
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-TORMW/wIX2QyyGBd4XwHGPir4/0U18Wxf+iDBAUW3EIJ0/VC/ZMpJOiyiCe1f8g9h0PPzA7sqVtl8JtTUtm4uA==
-  /@fortawesome/free-solid-svg-icons/5.8.1:
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.2.17
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-FUcxR75PtMOo3ihRHJOZz64IsWIVdWgB2vCMLJjquTv487wVVCMH5H5gWa72et2oI9lKKD2jvjQ+y+7mxhscVQ==
-  /@fortawesome/react-fontawesome/0.1.4:
-    dependencies:
-      humps: 2.0.1
-      prop-types: 15.7.2
-    dev: false
-    peerDependencies:
-      '@fortawesome/fontawesome-svg-core': ^1.2.0-7
-      react: 16.x
-    resolution:
-      integrity: sha512-GwmxQ+TK7PEdfSwvxtGnMCqrfEm0/HbRHArbUudsYiy9KzVCwndxa2KMcfyTQ8El0vROrq8gOOff09RF1oQe8g==
   /@mapbox/react-geocoder/2.5.0:
     dependencies:
       babelify: 6.4.0
@@ -2598,7 +2565,7 @@ packages:
     dependencies:
       cache-base: 1.0.1
       class-utils: 0.3.6
-      component-emitter: 1.2.1
+      component-emitter: 1.3.0
       define-property: 1.0.0
       isobject: 3.0.1
       mixin-deep: 1.3.1
@@ -2872,7 +2839,7 @@ packages:
   /cache-base/1.0.1:
     dependencies:
       collection-visit: 1.0.0
-      component-emitter: 1.2.1
+      component-emitter: 1.3.0
       get-value: 2.0.6
       has-value: 1.0.0
       isobject: 3.0.1
@@ -3243,10 +3210,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-NPw2cs0kOT6LtH5wyqApOBH08sU=
-  /component-emitter/1.2.1:
+  /component-emitter/1.3.0:
     dev: false
     resolution:
-      integrity: sha1-E3kY1teCg/ffemt8WmPhQOaUJeY=
+      integrity: sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg==
   /compressible/2.0.16:
     dependencies:
       mime-db: 1.38.0
@@ -3389,6 +3356,15 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+  /cors/2.8.5:
+    dependencies:
+      object-assign: 4.1.1
+      vary: 1.1.2
+    dev: false
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==
   /cosmiconfig/4.0.0:
     dependencies:
       is-directory: 0.3.1
@@ -5627,6 +5603,17 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-Fs25KVMPAIIcgjMZkVHJoKg9VcXcC1C8yb9JUgeDvVXY0S/zgVIhMb+qVswDIgtJe2DfckMSY2d6TuTEutlk6Q==
+  /http-proxy-middleware/0.19.1:
+    dependencies:
+      http-proxy: 1.17.0
+      is-glob: 4.0.1
+      lodash: 4.17.11
+      micromatch: 3.1.10
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-yHYTgWMQO8VvwNS22eLLloAkvungsKdKTLO8AJlftYIKNfJr3GK3zK0ZCfzDDGUBttdGc8xFy1mCitvNKQtC3Q==
   /http-proxy/1.17.0:
     dependencies:
       eventemitter3: 3.1.0
@@ -5652,10 +5639,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
-  /humps/2.0.1:
-    dev: false
-    resolution:
-      integrity: sha1-3QLqYIG9BWjcXQcxhEY5V7qe+ao=
   /iconv-lite/0.4.23:
     dependencies:
       safer-buffer: 2.1.2
@@ -6100,6 +6083,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-lSHHaEXMJhCoUgPd8ICpWML/q8A=
+  /is-glob/4.0.1:
+    dependencies:
+      is-extglob: 2.1.1
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-5G0tKtBTFImOqDnLB2hG6Bp2qcKEFduo4tZu9MT/H6NQv/ghhy30o55ufafxJ/LdH79LLs2Kfrn85TLKyA7BUg==
   /is-integer/1.0.7:
     dependencies:
       is-finite: 1.0.2
@@ -11716,13 +11707,12 @@ packages:
     resolution:
       integrity: sha1-ISBUaTFuk5Ex1Z8toMbX+YIh6kA=
 specifiers:
-  '@fortawesome/fontawesome-svg-core': ^1.2.15
-  '@fortawesome/free-solid-svg-icons': ^5.7.2
-  '@fortawesome/react-fontawesome': ^0.1.4
   '@mapbox/react-geocoder': ^2.5.0
   '@svgr/webpack': ^4.1.0
   axios: ^0.18.0
+  cors: ^2.8.5
   dotenv: ^7.0.0
+  http-proxy-middleware: ^0.19.1
   moment: ^2.24.0
   moment-timezone: ^0.5.23
   prop-types: ^15.7.2
